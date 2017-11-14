@@ -1,0 +1,23 @@
+{
+  "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
+  "@type": "http://ns.adobe.com/xdm/event/deleted",
+  "xdmEventEnvelope:objectType": "http://ns.adobe.com/xdm/asset",
+  "activitystreams:published": "2016-07-16T19:20:30+01:00",
+  "activitystreams:to": {
+    "@id": "08B3E5CE5822FC520A494229@AdobeOrg",
+    "@type": "http://ns.adobe.com/xdm/IMSOrg"
+  },
+  "activitystreams:generator": {
+    "@id": "AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com",
+    "@type": "http://ns.adobe.com/xdm/aem/instance"
+  },
+  "activitystreams:actor": {
+    "@id": "admin",
+    "@type": "http://ns.adobe.com/xdm/aem/user"
+  },
+  "activitystreams:object": {
+    "@id": "https://francois.corp.adobe.com:4502/content/dam/Fx_DUKE-small.png",
+    "@type": "http://ns.adobe.com/xdm/asset",
+    "xdmAsset:asset_id": "urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185"
+  }
+}
