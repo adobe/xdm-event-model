@@ -26,8 +26,8 @@ Have a look at the unit tests and you'll have a good understanding of the expect
 
 This Library is associated with 2 builds:
 
-* one for the standard Java library, with a classic `pom.xml`, pushed to artifactory as [xdm-event-model](https://artifactory.corp.adobe.com/artifactory/maven-cloud-action-local/com/adobe/xdm/event/xdm-event-model/)
-* another to build it as an OSGI library ready for use in AEM, with a `pom-bundle.xml` pushed to artifactory [com.adobe.cloudintegration.event-model](https://artifactory.corp.adobe.com/artifactory/maven-cloud-action-local/com/adobe/xdm/event/com.adobe.xdm.event.xdm-event-model/)
+* one for the standard Java library, with a classic `pom.xml`
+* another to build it as an OSGI library ready for use in AEM, with a `pom-bundle.xml` 
   * to trigger this build use the following command line: `mvn -f pom-bundle.xml -s settings.xml clean install`
   
 ## Contribute
