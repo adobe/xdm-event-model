@@ -1,7 +1,11 @@
 # xdm-event-model
 
 [![jenkins_jar](https://img.shields.io/badge/jenkins-jar-green.svg?style=flat)](https://cloudaction.ci.corp.adobe.com:12001/job/xdm-event-model/)
-[![jenkins_osgi](https://img.shields.io/badge/jenkins-osgi-green.svg?style=flat)](https://cloudaction.ci.corp.adobe.com:12001/job/xdm-event-model-osgi/)
+[![artifactory_jar](https://img.shields.io/badge/artifactory-jar-green.svg?style=flat)](https://artifactory.corp.adobe.com/artifactory/maven-cloud-action-local/com/adobe/xdm/event/xdm-event-model/)
+
+[![jenkins_osgi](https://img.shields.io/badge/jenkins-osgi-blue.svg?style=flat)](https://cloudaction.ci.corp.adobe.com:12001/job/xdm-event-model-osgi/)
+[![artifactory_osgi](https://img.shields.io/badge/artifactory-osgi-blue.svg?style=flat)](https://artifactory.corp.adobe.com/artifactory/maven-cloud-action-local/com/adobe/xdm/event/com.adobe.xdm.event.xdm-event-model/)
+
 
 `Adobe I/O` Java (Jackson based) Implementation of the XDM event model
 
