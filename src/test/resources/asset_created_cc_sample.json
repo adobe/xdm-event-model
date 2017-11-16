@@ -2,13 +2,17 @@
   "@id" : "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
   "@type" : "xdmCreated",
   "xdmEventEnvelope:objectType" : "xdmAsset",
-  "activitystreams:actor" : {
+  "activitystreams:to" : {
     "xdmImsUser:id" : "D13A1E7053E46A220A4C86E1@AdobeID",
     "@type" : "xdmImsUser"
   },
   "activitystreams:generator" : {
     "xdmContentRepository:root" : "https://cc-api-storage.adobe.io/",
     "@type" : "xdmContentRepository"
+  },
+  "activitystreams:actor" : {
+    "xdmImsUser:id" : "D13A1E7053E46A220A4C86E1@AdobeID",
+    "@type" : "xdmImsUser"
   },
   "activitystreams:object" : {
     "@type" : "xdmAsset",
@@ -19,10 +23,6 @@
     "xdmAsset:format" : "image/jpeg"
   },
   "activitystreams:published" : "2016-07-16T19:20:30+01:00",
-  "activitystreams:to" : {
-    "xdmImsUser:id" : "D13A1E7053E46A220A4C86E1@AdobeID",
-    "@type" : "xdmImsUser"
-  },
   "@context" : {
     "activitystreams" : "http://www.w3.org/ns/activitystreams#",
     "xdmEventEnvelope" : "https://ns.adobe.com/xdm/common/eventenvelope#",
