@@ -74,13 +74,7 @@ public class SerializationTest {
     CCAssetEvent xdmEvent = getCCAssetSampleEvent(new CCAssetCreatedEvent());
     String prettyString = JsonUtils.toPrettyString(xdmEvent);
     logger.info(prettyString);
-
     assertDeserialization(xdmEvent, "asset_created_cc_sample.json", CCAssetEvent.class);
-
-    String label = xdmEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Asset Created Event"));
-    assertTrue(xdmEvent.getEventCode().equals("asset_created"));
   }
 
   @Test
@@ -90,11 +84,6 @@ public class SerializationTest {
     logger.info(prettyString);
 
     assertDeserialization(xdmEvent, "asset_updated_cc_sample.json", CCAssetEvent.class);
-
-    String label = xdmEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Asset Updated Event"));
-    assertTrue(xdmEvent.getEventCode().equals("asset_updated"));
   }
 
   @Test
@@ -109,11 +98,6 @@ public class SerializationTest {
     logger.info(prettyString);
 
     assertDeserialization(assetEvent, "asset_deleted_cc_sample.json", CCAssetEvent.class);
-
-    String label = assetEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Asset Deleted Event"));
-    assertTrue(assetEvent.getEventCode().equals("asset_deleted"));
   }
 
   private AemAssetEvent getAemAssetSampleEvent(AemAssetEvent assetEvent) {
@@ -148,13 +132,7 @@ public class SerializationTest {
     AemAssetEvent xdmEvent = getAemAssetSampleEvent(new AemAssetCreatedEvent());
     String prettyString = JsonUtils.toPrettyString(xdmEvent);
     logger.info(prettyString);
-
     assertDeserialization(xdmEvent, "asset_created_aem_sample.json", AemAssetEvent.class);
-
-    String label = xdmEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Asset Created Event"));
-    assertTrue(xdmEvent.getEventCode().equals("asset_created"));
   }
 
   @Test
@@ -162,13 +140,7 @@ public class SerializationTest {
     AemAssetEvent xdmEvent = getAemAssetSampleEvent(new AemAssetUpdatedEvent());
     String prettyString = JsonUtils.toPrettyString(xdmEvent);
     logger.info(prettyString);
-
     assertDeserialization(xdmEvent, "asset_updated_aem_sample.json", AemAssetEvent.class);
-
-    String label = xdmEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Asset Updated Event"));
-    assertTrue(xdmEvent.getEventCode().equals("asset_updated"));
   }
 
   @Test
@@ -182,11 +154,6 @@ public class SerializationTest {
     logger.info(prettyString);
 
     assertDeserialization(assetEvent, "asset_deleted_aem_sample.json", AemAssetEvent.class);
-
-    String label = assetEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Asset Deleted Event"));
-    assertTrue(assetEvent.getEventCode().equals("asset_deleted"));
   }
 
 
@@ -221,11 +188,6 @@ public class SerializationTest {
     logger.info(prettyString);
 
     assertDeserialization(xdmEvent, "page_published_aem_sample.json", AemPageEvent.class);
-
-    String label = xdmEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Page Published Event"));
-    assertTrue(xdmEvent.getEventCode().equals("page_published"));
   }
 
   @Test
@@ -235,11 +197,6 @@ public class SerializationTest {
     logger.info(prettyString);
 
     assertDeserialization(xdmEvent, "page_unpublished_aem_sample.json", AemPageEvent.class);
-
-    String label = xdmEvent.getLabel();
-    logger.info("label: " + label);
-    assertTrue(label.equals("Page Unpublished Event"));
-    assertTrue(xdmEvent.getEventCode().equals("page_unpublished"));
   }
 
   private String readFile(String relativePath)

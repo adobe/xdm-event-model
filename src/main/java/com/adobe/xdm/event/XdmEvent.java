@@ -110,27 +110,6 @@ public class XdmEvent
     this.object = object;
   }
 
-  @JsonIgnore
-  public String getLabel() {
-    String objectTypeLabel = this.getObjectType().substring(XdmContext.XDM_BASE_URL.length() + 1);
-    String eventTypeLabel = this.getType().substring(XdmContext.XDM_EVENT_BASE_URL.length() + 1);
-    return capitalize(objectTypeLabel) + " " + capitalize((eventTypeLabel) + " Event");
-  }
-
-  public String capitalize(String str) {
-    char[] stringArray = str.trim().toCharArray();
-    stringArray[0] = Character.toUpperCase(stringArray[0]);
-    return new String(stringArray);
-  }
-
-  @JsonIgnore
-  public String getEventCode() {
-
-    String objectTypeCode = this.getObjectType().substring(XdmContext.XDM_BASE_URL.length() + 1);
-    String eventTypeCode = this.getType().substring(XdmContext.XDM_EVENT_BASE_URL.length() + 1);
-    return objectTypeCode + '_' + eventTypeCode;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
