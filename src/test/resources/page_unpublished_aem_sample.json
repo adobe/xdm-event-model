@@ -1,24 +1,33 @@
 {
   "@id": "82235bac-2b81-4e70-90b5-2bd1f04b5c7b",
-  "@type": "http://ns.adobe.com/xdm/event/unpublished",
+  "@type": "xdmUnpublished",
   "xdmEventEnvelope:objectType": "http://ns.adobe.com/xdm/page",
   "activitystreams:published": "2016-07-16T19:20:30+01:00",
   "activitystreams:to": {
-    "@id": "08B3E5CE5822FC520A494229@AdobeOrg",
-    "@type": "http://ns.adobe.com/xdm/IMSOrg"
+    "xdmImsOrg:id" : "08B3E5CE5822FC520A494229@AdobeOrg",
+    "@type" : "xdmImsOrg"
   },
   "activitystreams:generator": {
-    "@id": "AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com",
-    "@type": "http://ns.adobe.com/xdm/aem/instance"
+    "xdmContentRepository:root" : "https://cloud-action-dev.corp.adobe.com:4502/",
+    "@type" : "xdmContentRepository"
   },
   "activitystreams:actor": {
-    "@id": "admin",
-    "@type": "http://ns.adobe.com/xdm/aem/user"
+    "xdmAemUser:id" : "admin",
+    "@type" : "xdmAemUser"
   },
   "activitystreams:object": {
     "@id": "http://adobesummit.adobesandbox.com:4502/content/geometrixx/en/vintage.html",
-    "@type": "http://ns.adobe.com/xdm/page",
-    "xdmPage:title": "Vintage Collection",
-    "xdmPage:pathname": "/content/geometrixx/en/vintage.html"
+    "@type": "xdmComponentizedPage",
+    "xdmComponentizedPage:title": "Vintage Collection",
+    "xdmComponentizedPage:path": "/content/geometrixx/en/vintage.html"
+  },
+  "@context" : {
+    "activitystreams" : "http://www.w3.org/ns/activitystreams#",
+    "xdmEventEnvelope" : "https://ns.adobe.com/xdm/common/eventenvelope#",
+    "xdmComponentizedPage" : "https://ns.adobe.com/xdm/content/componentized-page#",
+    "xdmImsOrg": "https://ns.adobe.com/xdm/ims/organization#",
+    "xdmContentRepository": "https://ns.adobe.com/xdm/content/repository#",
+    "xdmUnpublished": "https://ns.adobe.com/xdm/common/event/published#",
+    "xdmAemUser": "https://ns.adobe.com/xdm/aem/user#"
   }
 }
