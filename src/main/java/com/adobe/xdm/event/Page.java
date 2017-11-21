@@ -79,4 +79,15 @@ public class Page extends ActivityStreamObject {
     result = 31 * result + (pathname != null ? pathname.hashCode() : 0);
     return result;
   }
+
+  @Override
+  public String toString() {
+    return "Page{" +
+        "title='" + title + '\'' +
+        ", pathname='" + pathname + '\'' +
+        ", id='" + id + '\'' +
+        ", mediaType='" + mediaType + '\'' +
+        ", type='" + type + '\'' +
+        '}';
+  }
 }

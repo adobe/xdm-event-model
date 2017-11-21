@@ -153,4 +153,17 @@ public class XdmEvent
     result = 31 * result + (object != null ? object.hashCode() : 0);
     return result;
   }
+
+  @Override
+  public String toString() {
+    return "XdmEvent{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", published='" + published + '\'' +
+        ", to=" + to +
+        ", generator=" + generator +
+        ", actor=" + actor +
+        ", object=" + object +
+        '}';
+  }
 }

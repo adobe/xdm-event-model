@@ -116,4 +116,17 @@ public class Asset extends ActivityStreamObject {
     result = 31 * result + (pathname != null ? pathname.hashCode() : 0);
     return result;
   }
+
+  @Override
+  public String toString() {
+    return "Asset{" +
+        "assetId='" + assetId + '\'' +
+        ", assetName='" + assetName + '\'' +
+        ", etag='" + etag + '\'' +
+        ", pathname='" + pathname + '\'' +
+        ", id='" + id + '\'' +
+        ", mediaType='" + mediaType + '\'' +
+        ", type='" + type + '\'' +
+        '}';
+  }
 }
