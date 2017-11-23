@@ -19,16 +19,27 @@ package com.adobe.xdm.event;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Service extends ActivityStreamObject {
+public class ContentRepository extends ActivityStreamObject {
 
-  public static final String TYPE = "http://ns.adobe.com/xdm/service";
+  protected String root;
 
-  public Service() {
+  public ContentRepository() {
     super();
-    this.type = TYPE;
+    this.type = XdmContext.XDM_CONTENT_REPOSITORY_TYPE;
+  }
+
+  @JsonProperty(XdmContext.XDM_CONTENT_REPOSITORY_PREFIX+":root")
+  public String getRoot() {
+    return root;
+  }
+
+  public void setRoot(String root) {
+    this.root = root;
   }
 
 }

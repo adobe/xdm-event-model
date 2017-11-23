@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AemAssetEvent extends XdmEvent<Asset, ImsOrg, AemInstance, AemUser> {
+public class AemAssetEvent extends XdmEvent<Asset, ImsOrg, ContentRepository, AemUser> {
 
   public AemAssetEvent() {
     super();
