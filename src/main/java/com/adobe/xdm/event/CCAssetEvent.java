@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CCAssetEvent extends XdmEvent<Asset, ImsUser, Service, ImsUser> {
+public class CCAssetEvent extends XdmEvent<Asset, ImsUser, ContentRepository, ImsUser> {
 
   public CCAssetEvent() {
     super();

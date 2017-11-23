@@ -1,0 +1,12 @@
+{
+  "@context" : {
+    "activitystreams" : "http://www.w3.org/ns/activitystreams#",
+    "xdmEventEnvelope" : "http://ns.adobe.com/xdm/event-envelope#",
+    "xdmComponentizedPage" : "http://ns.adobe.com/xdm/content/componentized-page#",
+    "xdmImsOrg" : "http://ns.adobe.com/xdm/ims/organization#",
+    "xdmContentRepository" : "http://ns.adobe.com/xdm/content/repository#",
+    "xdmAemUser" : "http://ns.adobe.com/xdm/aem/user",
+    "xdmImsUser" : "http://ns.adobe.com/xdm/ims/user#",
+    "xdmAsset" : "http://ns.adobe.com/xdm/assets/asset#"
+  }
+}

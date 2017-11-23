@@ -47,14 +47,15 @@ public class SerializationTest {
     imsUser.setId("D13A1E7053E46A220A4C86E1@AdobeID");
     assetEvent.setTo(imsUser);
     assetEvent.setActor(imsUser);
-    Service service = new Service();
-    service.setId("creative-cloud");
-    assetEvent.setGenerator(service);
+
+    ContentRepository creativeCloud = new ContentRepository();
+    creativeCloud.setId("cc-api-storage.adobe.io");
+    creativeCloud.setRoot("https://cc-api-storage.adobe.io/");
+    assetEvent.setGenerator(creativeCloud);
+
     Asset asset = new Asset();
     asset.setMediaType("image/jpg");
-    asset.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
-    asset.setId(
-        "https://cc-api-storage-stage.adobe.io/id/urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    asset.setId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     asset.setAssetName("example.jpg");
     asset.setETag("6fc55d0389d856ae7deccebba54f110e");
     asset.setPathname("/MyFolder/example.jpg");
@@ -90,9 +91,7 @@ public class SerializationTest {
   public void testCCAssetDeletedEventSerialization() throws IOException {
     CCAssetEvent assetEvent = getCCAssetSampleEvent(new CCAssetDeletedEvent());
     Asset asset = new Asset();
-    asset.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
-    asset.setId(
-        "https://cc-api-storage-stage.adobe.io/id/urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    asset.setId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     assetEvent.setObject(asset);
     String prettyString = JsonUtils.toPrettyString(assetEvent);
     logger.info(prettyString);
@@ -107,8 +106,9 @@ public class SerializationTest {
     imsOrg.setId("08B3E5CE5822FC520A494229@AdobeOrg");
     assetEvent.setTo(imsOrg);
 
-    AemInstance aemInstance = new AemInstance();
+    ContentRepository aemInstance = new ContentRepository();
     aemInstance.setId("AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com");
+    aemInstance.setRoot("http://francois.corp.adobe.com:4502/");
     assetEvent.setGenerator(aemInstance);
 
     AemUser aemUser = new AemUser();
@@ -117,8 +117,7 @@ public class SerializationTest {
 
     Asset asset = new Asset();
     asset.setMediaType("image/png");
-    asset.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
-    asset.setId("https://francois.corp.adobe.com:4502/content/dam/Fx_DUKE-small.png");
+    asset.setId("urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     asset.setAssetName("Fx_DUKE-small.png");
     asset.setETag("6fc55d0389d856ae7deccebba54f110e");
     asset.setPathname("/content/dam/Fx_DUKE-small.png");
@@ -147,8 +146,7 @@ public class SerializationTest {
   public void testAemAssetDeletedEventSerialization() throws IOException {
     AemAssetEvent assetEvent = getAemAssetSampleEvent(new AemAssetDeletedEvent());
     Asset asset = new Asset();
-    asset.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
-    asset.setId("https://francois.corp.adobe.com:4502/content/dam/Fx_DUKE-small.png");
+    asset.setId("urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     assetEvent.setObject(asset);
     String prettyString = JsonUtils.toPrettyString(assetEvent);
     logger.info(prettyString);
@@ -165,8 +163,9 @@ public class SerializationTest {
     imsOrg.setId("08B3E5CE5822FC520A494229@AdobeOrg");
     pageEvent.setTo(imsOrg);
 
-    AemInstance aemInstance = new AemInstance();
+    ContentRepository aemInstance = new ContentRepository();
     aemInstance.setId("AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com");
+    aemInstance.setRoot("http://francois.corp.adobe.com:4502/");
     pageEvent.setGenerator(aemInstance);
 
     AemUser aemUser = new AemUser();
@@ -198,6 +197,14 @@ public class SerializationTest {
 
     assertDeserialization(xdmEvent, "page_unpublished_aem_sample.json", AemPageEvent.class);
   }
+
+  @Test
+  public void testXdmContextSerialization() throws IOException {
+    Xdm xdm = new Xdm();
+    String prettyString = JsonUtils.toPrettyString(xdm);
+    logger.info(prettyString);
+  }
+
 
   private String readFile(String relativePath)
       throws IOException {

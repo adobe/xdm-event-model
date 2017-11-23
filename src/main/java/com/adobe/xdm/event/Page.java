@@ -25,16 +25,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Page extends ActivityStreamObject {
 
-  public static final String TYPE = XdmContext.XDM_BASE_URL + "/page";
   private String title;
-  private String pathname;
+  private String path;
 
   public Page() {
     super();
-    this.type = TYPE;
+    this.type = XdmContext.XDM_COMPONENTIZED_PAGE_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_PAGE_PREFIX + ":title")
+  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":title")
   public String getTitle() {
     return title;
   }
@@ -43,13 +42,13 @@ public class Page extends ActivityStreamObject {
     this.title = title;
   }
 
-  @JsonProperty(XdmContext.XDM_PAGE_PREFIX + ":pathname")
+  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":path")
   public String getPathname() {
-    return pathname;
+    return path;
   }
 
   public void setPathname(String pathname) {
-    this.pathname = pathname;
+    this.path = pathname;
   }
 
   @Override
@@ -69,14 +68,14 @@ public class Page extends ActivityStreamObject {
     if (title != null ? !title.equals(page.title) : page.title != null) {
       return false;
     }
-    return pathname != null ? pathname.equals(page.pathname) : page.pathname == null;
+    return path != null ? path.equals(page.path) : page.path == null;
   }
 
   @Override
   public int hashCode() {
     int result = super.hashCode();
     result = 31 * result + (title != null ? title.hashCode() : 0);
-    result = 31 * result + (pathname != null ? pathname.hashCode() : 0);
+    result = 31 * result + (path != null ? path.hashCode() : 0);
     return result;
   }
 
@@ -84,7 +83,7 @@ public class Page extends ActivityStreamObject {
   public String toString() {
     return "Page{" +
         "title='" + title + '\'' +
-        ", pathname='" + pathname + '\'' +
+        ", pathname='" + path + '\'' +
         ", id='" + id + '\'' +
         ", mediaType='" + mediaType + '\'' +
         ", type='" + type + '\'' +

@@ -19,15 +19,20 @@ package com.adobe.xdm.event;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImsOrg extends ActivityStreamObject {
 
-  public static final String TYPE = XdmContext.XDM_BASE_URL + "/IMSOrg";
-
   public ImsOrg() {
     super();
-    this.type = TYPE;
+    this.type = XdmContext.XDM_IMS_ORG_TYPE;
   }
+
+  @JsonProperty(XdmContext.XDM_IMS_ORG_PREFIX+":id")
+  public String getImsOrgId() {
+    return this.getId();
+  }
+
 }

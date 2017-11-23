@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Asset extends ActivityStreamObject {
 
-  public static final String TYPE = XdmContext.XDM_BASE_URL + "/asset";
-
-  private String assetId;
-
   private String assetName;
 
   private String etag;
@@ -37,16 +33,12 @@ public class Asset extends ActivityStreamObject {
 
   public Asset() {
     super();
-    this.type = TYPE;
+    this.type = XdmContext.XDM_ASSET_TYPE;
   }
 
   @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":asset_id")
   public String getAssetId() {
-    return assetId;
-  }
-
-  public void setAssetId(String assetId) {
-    this.assetId = assetId;
+    return this.getId();
   }
 
   @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":asset_name")
@@ -76,10 +68,11 @@ public class Asset extends ActivityStreamObject {
     this.pathname = pathname;
   }
 
-  @Override
-  public String getType() {
-    return TYPE;
+  @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":format")
+  public String getFormat() {
+    return this.getMediaType();
   }
+
 
   @Override
   public boolean equals(Object o) {
@@ -95,9 +88,6 @@ public class Asset extends ActivityStreamObject {
 
     Asset asset = (Asset) o;
 
-    if (assetId != null ? !assetId.equals(asset.assetId) : asset.assetId != null) {
-      return false;
-    }
     if (assetName != null ? !assetName.equals(asset.assetName) : asset.assetName != null) {
       return false;
     }
@@ -110,7 +100,6 @@ public class Asset extends ActivityStreamObject {
   @Override
   public int hashCode() {
     int result = super.hashCode();
-    result = 31 * result + (assetId != null ? assetId.hashCode() : 0);
     result = 31 * result + (assetName != null ? assetName.hashCode() : 0);
     result = 31 * result + (etag != null ? etag.hashCode() : 0);
     result = 31 * result + (pathname != null ? pathname.hashCode() : 0);
@@ -120,8 +109,7 @@ public class Asset extends ActivityStreamObject {
   @Override
   public String toString() {
     return "Asset{" +
-        "assetId='" + assetId + '\'' +
-        ", assetName='" + assetName + '\'' +
+        "  assetName='" + assetName + '\'' +
         ", etag='" + etag + '\'' +
         ", pathname='" + pathname + '\'' +
         ", id='" + id + '\'' +

@@ -17,6 +17,7 @@
 package com.adobe.xdm.event;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,14 +25,36 @@ public class XdmContext {
 
   public static final String XDM_BASE_URL = "http://ns.adobe.com/xdm";
 
-  public static final String XDM_EVENT_BASE_URL = XDM_BASE_URL + "/event";
+  public static final String XDM_AEM_USER_TYPE = "xdmAemUser";
+  public static final String XDM_AEM_USER_PREFIX = XDM_AEM_USER_TYPE;
+  public static final String XDM_AEM_USER_JSONLD_IRI  = XDM_BASE_URL + "/aem/user";
 
-  public static final String XDM_EVENT_CREATED_TYPE = XDM_EVENT_BASE_URL + "/created";
-  public static final String XDM_EVENT_DELETED_TYPE = XDM_EVENT_BASE_URL + "/deleted";
-  public static final String XDM_EVENT_UPDATED_TYPE = XDM_EVENT_BASE_URL + "/updated";
+  public static final String XDM_ASSET_TYPE = "xdmAsset";
+  public static final String XDM_ASSET_PREFIX = XDM_ASSET_TYPE;
+  public static final String XDM_ASSET_JSONLD_IRI  = XDM_BASE_URL + "/assets/asset#";
 
-  public static final String XDM_EVENT_PUBLISHED_TYPE = XDM_EVENT_BASE_URL + "/published";
-  public static final String XDM_EVENT_UNPUBLISHED_TYPE = XDM_EVENT_BASE_URL + "/unpublished";
+  public static final String XDM_IMS_ORG_TYPE = "xdmImsOrg";
+  public static final String XDM_IMS_ORG_PREFIX = XDM_IMS_ORG_TYPE;
+  public static final String XDM_IMS_ORG_JSONLD_IRI  = XDM_BASE_URL + "/ims/organization#";
+
+  public static final String XDM_IMS_USER_TYPE = "xdmImsUser";
+  public static final String XDM_IMS_USER_PREFIX = XDM_IMS_USER_TYPE;
+  public static final String XDM_IMS_USER_JSONLD_IRI  = XDM_BASE_URL + "/ims/user#";
+
+  public static final String XDM_CONTENT_REPOSITORY_TYPE = "xdmContentRepository";
+  public static final String XDM_CONTENT_REPOSITORY_PREFIX = XDM_CONTENT_REPOSITORY_TYPE;
+  public static final String XDM_CONTENT_REPOSITORY_JSONLD_IRI  = XDM_BASE_URL + "/content/repository#";
+
+  public static final String XDM_COMPONENTIZED_PAGE_TYPE = "xdmComponentizedPage";
+  public static final String XDM_COMPONENTIZED_PAGE_PREFIX = XDM_COMPONENTIZED_PAGE_TYPE;
+  public static final String XDM_COMPONENTIZED_PAGE_JSONLD_IRI  = XDM_BASE_URL + "/content/componentized-page#";
+
+  public static final String XDM_EVENT_CREATED_TYPE = "xdmCreated";
+  public static final String XDM_EVENT_DELETED_TYPE = "xdmDeleted";
+  public static final String XDM_EVENT_UPDATED_TYPE = "xdmUpdated";
+
+  public static final String XDM_EVENT_PUBLISHED_TYPE = "xdmPublished";
+  public static final String XDM_EVENT_UNPUBLISHED_TYPE = "xdmUnpublished";
 
   public static final String W3C_ACTIVITYSTREAMS_PREFIX = "activitystreams";
   public static final String W3C_ACTIVITYSTREAMS_JSONLD_IRI = "http://www.w3.org/ns/activitystreams#";
@@ -39,24 +62,45 @@ public class XdmContext {
   public static final String XDM_EVENT_ENVELOPE_PREFIX = "xdmEventEnvelope";
   public static final String XDM_EVENT_ENVELOPE_JSONLD_IRI = XDM_BASE_URL + "/event-envelope#";
 
-  public static final String XDM_ASSET_PREFIX = "xdmAsset";
-  public static final String XDM_ASSET_JSONLD_IRI = Asset.TYPE + "#";
-
-  public static final String XDM_PAGE_PREFIX = "xdmPage";
-  public static final String XDM_PAGE_JSONLD_IRI = Page.TYPE + "#";
-
   public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssX";
 
-  /**
-   * @return the context map to be used while jsonld compaction cf. https://json-ld.org/spec/latest/json-ld-api/#compaction
-   */
-  public static Map getDefault() {
-    Map context = new HashMap();
-    context.put(W3C_ACTIVITYSTREAMS_PREFIX, W3C_ACTIVITYSTREAMS_JSONLD_IRI);
-    context.put(XDM_EVENT_ENVELOPE_PREFIX, XDM_EVENT_ENVELOPE_JSONLD_IRI);
-    context.put(XDM_ASSET_PREFIX, XDM_ASSET_JSONLD_IRI);
-    context.put(XDM_PAGE_PREFIX, XDM_PAGE_JSONLD_IRI);
-    return context;
+  @JsonProperty(W3C_ACTIVITYSTREAMS_PREFIX)
+  public String getActivityStreamsIRI() {
+    return W3C_ACTIVITYSTREAMS_JSONLD_IRI;
   }
 
+  @JsonProperty(XDM_EVENT_ENVELOPE_PREFIX)
+  public String getXdmEnvelopeIRI() {
+    return XDM_EVENT_ENVELOPE_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_COMPONENTIZED_PAGE_PREFIX)
+  public String getXdmComponentizedPageIRI() {
+    return XDM_COMPONENTIZED_PAGE_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_IMS_ORG_PREFIX)
+  public String getXdmImsOrgIRI() {
+    return XDM_IMS_ORG_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_CONTENT_REPOSITORY_PREFIX)
+  public String getXdmContentRepositoryIRI() {
+    return XDM_CONTENT_REPOSITORY_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_AEM_USER_PREFIX)
+  public String getXdmAemUserIRI() {
+    return XDM_AEM_USER_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_IMS_USER_PREFIX)
+  public String getXdmImsUserIRI() {
+    return XDM_IMS_USER_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_ASSET_PREFIX)
+  public String getXdmAssetIRI() {
+    return XDM_ASSET_JSONLD_IRI;
+  }
 }
