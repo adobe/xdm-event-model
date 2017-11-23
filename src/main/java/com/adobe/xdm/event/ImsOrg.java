@@ -30,7 +30,7 @@ public class ImsOrg extends ActivityStreamObject {
     this.type = XdmContext.XDM_IMS_ORG_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_IMS_ORG_PREFIX+":id")
+  @JsonProperty(XdmContext.XDM_IMS_ORG_PREFIX + ":id")
   public String getImsOrgId() {
     return this.getId();
   }

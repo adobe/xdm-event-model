@@ -33,7 +33,7 @@ public class ContentRepository extends ActivityStreamObject {
     this.type = XdmContext.XDM_CONTENT_REPOSITORY_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_CONTENT_REPOSITORY_PREFIX+":root")
+  @JsonProperty(XdmContext.XDM_CONTENT_REPOSITORY_PREFIX + ":root")
   public String getRoot() {
     return root;
   }

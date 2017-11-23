@@ -31,7 +31,7 @@ public class AemUser extends ActivityStreamObject {
     this.type = XdmContext.XDM_AEM_USER_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_AEM_USER_PREFIX+":id")
+  @JsonProperty(XdmContext.XDM_AEM_USER_PREFIX + ":id")
   public String getAemUserId() {
     return this.getId();
   }

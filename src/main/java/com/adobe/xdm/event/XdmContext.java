@@ -18,8 +18,6 @@ package com.adobe.xdm.event;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.HashMap;
-import java.util.Map;
 
 public class XdmContext {
 
@@ -27,27 +25,29 @@ public class XdmContext {
 
   public static final String XDM_AEM_USER_TYPE = "xdmAemUser";
   public static final String XDM_AEM_USER_PREFIX = XDM_AEM_USER_TYPE;
-  public static final String XDM_AEM_USER_JSONLD_IRI  = XDM_BASE_URL + "/aem/user";
+  public static final String XDM_AEM_USER_JSONLD_IRI = XDM_BASE_URL + "/aem/user";
 
   public static final String XDM_ASSET_TYPE = "xdmAsset";
   public static final String XDM_ASSET_PREFIX = XDM_ASSET_TYPE;
-  public static final String XDM_ASSET_JSONLD_IRI  = XDM_BASE_URL + "/assets/asset#";
+  public static final String XDM_ASSET_JSONLD_IRI = XDM_BASE_URL + "/assets/asset#";
 
   public static final String XDM_IMS_ORG_TYPE = "xdmImsOrg";
   public static final String XDM_IMS_ORG_PREFIX = XDM_IMS_ORG_TYPE;
-  public static final String XDM_IMS_ORG_JSONLD_IRI  = XDM_BASE_URL + "/ims/organization#";
+  public static final String XDM_IMS_ORG_JSONLD_IRI = XDM_BASE_URL + "/ims/organization#";
 
   public static final String XDM_IMS_USER_TYPE = "xdmImsUser";
   public static final String XDM_IMS_USER_PREFIX = XDM_IMS_USER_TYPE;
-  public static final String XDM_IMS_USER_JSONLD_IRI  = XDM_BASE_URL + "/ims/user#";
+  public static final String XDM_IMS_USER_JSONLD_IRI = XDM_BASE_URL + "/ims/user#";
 
   public static final String XDM_CONTENT_REPOSITORY_TYPE = "xdmContentRepository";
   public static final String XDM_CONTENT_REPOSITORY_PREFIX = XDM_CONTENT_REPOSITORY_TYPE;
-  public static final String XDM_CONTENT_REPOSITORY_JSONLD_IRI  = XDM_BASE_URL + "/content/repository#";
+  public static final String XDM_CONTENT_REPOSITORY_JSONLD_IRI =
+      XDM_BASE_URL + "/content/repository#";
 
   public static final String XDM_COMPONENTIZED_PAGE_TYPE = "xdmComponentizedPage";
   public static final String XDM_COMPONENTIZED_PAGE_PREFIX = XDM_COMPONENTIZED_PAGE_TYPE;
-  public static final String XDM_COMPONENTIZED_PAGE_JSONLD_IRI  = XDM_BASE_URL + "/content/componentized-page#";
+  public static final String XDM_COMPONENTIZED_PAGE_JSONLD_IRI =
+      XDM_BASE_URL + "/content/componentized-page#";
 
   public static final String XDM_EVENT_CREATED_TYPE = "xdmCreated";
   public static final String XDM_EVENT_DELETED_TYPE = "xdmDeleted";

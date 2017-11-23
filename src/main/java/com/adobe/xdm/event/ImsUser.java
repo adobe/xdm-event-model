@@ -30,7 +30,7 @@ public class ImsUser extends ActivityStreamObject {
     this.type = XdmContext.XDM_IMS_USER_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_IMS_USER_PREFIX+":id")
+  @JsonProperty(XdmContext.XDM_IMS_USER_PREFIX + ":id")
   public String getImsUserId() {
     return this.getId();
   }
