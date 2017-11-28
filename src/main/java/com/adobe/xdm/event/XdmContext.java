@@ -21,11 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class XdmContext {
 
-  public static final String XDM_BASE_URL = "http://ns.adobe.com/xdm";
+  public static final String XDM_BASE_URL = "https://ns.adobe.com/xdm";
+  public static final String XDM_EXTENSION_BASE_URL = "https://ns.adobe.com/xdm-extensions";
 
   public static final String XDM_AEM_USER_TYPE = "xdmAemUser";
   public static final String XDM_AEM_USER_PREFIX = XDM_AEM_USER_TYPE;
-  public static final String XDM_AEM_USER_JSONLD_IRI = XDM_BASE_URL + "/aem/user";
+  public static final String XDM_AEM_USER_JSONLD_IRI = XDM_EXTENSION_BASE_URL + "/aem/user";
 
   public static final String XDM_ASSET_TYPE = "xdmAsset";
   public static final String XDM_ASSET_PREFIX = XDM_ASSET_TYPE;
@@ -33,11 +34,11 @@ public class XdmContext {
 
   public static final String XDM_IMS_ORG_TYPE = "xdmImsOrg";
   public static final String XDM_IMS_ORG_PREFIX = XDM_IMS_ORG_TYPE;
-  public static final String XDM_IMS_ORG_JSONLD_IRI = XDM_BASE_URL + "/ims/organization#";
+  public static final String XDM_IMS_ORG_JSONLD_IRI = XDM_EXTENSION_BASE_URL + "/ims/organization#";
 
   public static final String XDM_IMS_USER_TYPE = "xdmImsUser";
   public static final String XDM_IMS_USER_PREFIX = XDM_IMS_USER_TYPE;
-  public static final String XDM_IMS_USER_JSONLD_IRI = XDM_BASE_URL + "/ims/user#";
+  public static final String XDM_IMS_USER_JSONLD_IRI = XDM_EXTENSION_BASE_URL + "/ims/user#";
 
   public static final String XDM_CONTENT_REPOSITORY_TYPE = "xdmContentRepository";
   public static final String XDM_CONTENT_REPOSITORY_PREFIX = XDM_CONTENT_REPOSITORY_TYPE;
@@ -50,16 +51,16 @@ public class XdmContext {
       XDM_BASE_URL + "/content/componentized-page#";
 
   public static final String XDM_EVENT_CREATED_TYPE = "xdmCreated";
-  public static final String XDM_EVENT_CREATED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/created#";
+  public static final String XDM_EVENT_CREATED_JSONLD_IRI = XDM_BASE_URL + "/common/event/created#";
   public static final String XDM_EVENT_DELETED_TYPE = "xdmDeleted";
-  public static final String XDM_EVENT_DELETED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/deleted#";
+  public static final String XDM_EVENT_DELETED_JSONLD_IRI = XDM_BASE_URL + "/common/event/deleted#";
   public static final String XDM_EVENT_UPDATED_TYPE = "xdmUpdated";
-  public static final String XDM_EVENT_UPDATED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/updated#";
+  public static final String XDM_EVENT_UPDATED_JSONLD_IRI = XDM_BASE_URL + "/common/event/updated#";
 
   public static final String XDM_EVENT_PUBLISHED_TYPE = "xdmPublished";
-  public static final String XDM_EVENT_PUBLISHED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/published#";
+  public static final String XDM_EVENT_PUBLISHED_JSONLD_IRI = XDM_BASE_URL + "/common/event/published#";
   public static final String XDM_EVENT_UNPUBLISHED_TYPE = "xdmUnpublished";
-  public static final String XDM_EVENT_UNPUBLISHED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/unpublished#";
+  public static final String XDM_EVENT_UNPUBLISHED_JSONLD_IRI = XDM_BASE_URL + "/common/event/unpublished#";
 
   public static final String W3C_ACTIVITYSTREAMS_PREFIX = "activitystreams";
   public static final String W3C_ACTIVITYSTREAMS_JSONLD_IRI = "http://www.w3.org/ns/activitystreams#";
