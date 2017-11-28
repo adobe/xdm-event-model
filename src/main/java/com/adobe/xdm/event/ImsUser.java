@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImsUser extends ActivityStreamObject {
 
+  private String imsUserId;
+
   public ImsUser() {
     super();
     this.type = XdmContext.XDM_IMS_USER_TYPE;
@@ -32,6 +34,10 @@ public class ImsUser extends ActivityStreamObject {
 
   @JsonProperty(XdmContext.XDM_IMS_USER_PREFIX + ":id")
   public String getImsUserId() {
-    return this.getId();
+    return this.imsUserId;
+  }
+
+  public void setImsUserId(String imsUserId) {
+    this.imsUserId = imsUserId;
   }
 }

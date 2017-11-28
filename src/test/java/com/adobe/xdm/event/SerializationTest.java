@@ -44,21 +44,20 @@ public class SerializationTest {
     assetEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
     assetEvent.setPublished("2016-07-16T19:20:30+01:00");
     ImsUser imsUser = new ImsUser();
-    imsUser.setId("D13A1E7053E46A220A4C86E1@AdobeID");
+    imsUser.setImsUserId("D13A1E7053E46A220A4C86E1@AdobeID");
     assetEvent.setTo(imsUser);
     assetEvent.setActor(imsUser);
 
     ContentRepository creativeCloud = new ContentRepository();
-    creativeCloud.setId("cc-api-storage.adobe.io");
     creativeCloud.setRoot("https://cc-api-storage.adobe.io/");
     assetEvent.setGenerator(creativeCloud);
 
     Asset asset = new Asset();
-    asset.setMediaType("image/jpg");
-    asset.setId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    asset.setFormat("image/jpeg");
+    asset.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     asset.setAssetName("example.jpg");
-    asset.setETag("6fc55d0389d856ae7deccebba54f110e");
-    asset.setPathname("/MyFolder/example.jpg");
+    asset.setEtag("6fc55d0389d856ae7deccebba54f110e");
+    asset.setPath("/MyFolder/example.jpg");
     assetEvent.setObject(asset);
     return assetEvent;
   }
@@ -91,7 +90,7 @@ public class SerializationTest {
   public void testCCAssetDeletedEventSerialization() throws IOException {
     CCAssetEvent assetEvent = getCCAssetSampleEvent(new CCAssetDeletedEvent());
     Asset asset = new Asset();
-    asset.setId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    asset.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     assetEvent.setObject(asset);
     String prettyString = JsonUtils.toPrettyString(assetEvent);
     logger.info(prettyString);
@@ -103,24 +102,23 @@ public class SerializationTest {
     assetEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
     assetEvent.setPublished("2016-07-16T19:20:30+01:00");
     ImsOrg imsOrg = new ImsOrg();
-    imsOrg.setId("08B3E5CE5822FC520A494229@AdobeOrg");
+    imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
     assetEvent.setTo(imsOrg);
 
     ContentRepository aemInstance = new ContentRepository();
-    aemInstance.setId("AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com");
     aemInstance.setRoot("http://francois.corp.adobe.com:4502/");
     assetEvent.setGenerator(aemInstance);
 
     AemUser aemUser = new AemUser();
-    aemUser.setId("admin");
+    aemUser.setAemUserId("admin");
     assetEvent.setActor(aemUser);
 
     Asset asset = new Asset();
-    asset.setMediaType("image/png");
-    asset.setId("urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    asset.setFormat("image/png");
+    asset.setAssetId("urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     asset.setAssetName("Fx_DUKE-small.png");
-    asset.setETag("6fc55d0389d856ae7deccebba54f110e");
-    asset.setPathname("/content/dam/Fx_DUKE-small.png");
+    asset.setEtag("6fc55d0389d856ae7deccebba54f110e");
+    asset.setPath("/content/dam/Fx_DUKE-small.png");
     assetEvent.setObject(asset);
     return assetEvent;
   }
@@ -146,7 +144,7 @@ public class SerializationTest {
   public void testAemAssetDeletedEventSerialization() throws IOException {
     AemAssetEvent assetEvent = getAemAssetSampleEvent(new AemAssetDeletedEvent());
     Asset asset = new Asset();
-    asset.setId("urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    asset.setAssetId("urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
     assetEvent.setObject(asset);
     String prettyString = JsonUtils.toPrettyString(assetEvent);
     logger.info(prettyString);
@@ -160,16 +158,15 @@ public class SerializationTest {
     pageEvent.setPublished("2016-07-16T19:20:30+01:00");
 
     ImsOrg imsOrg = new ImsOrg();
-    imsOrg.setId("08B3E5CE5822FC520A494229@AdobeOrg");
+    imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
     pageEvent.setTo(imsOrg);
 
     ContentRepository aemInstance = new ContentRepository();
-    aemInstance.setId("AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com");
     aemInstance.setRoot("http://francois.corp.adobe.com:4502/");
     pageEvent.setGenerator(aemInstance);
 
     AemUser aemUser = new AemUser();
-    aemUser.setId("admin");
+    aemUser.setAemUserId("admin");
     pageEvent.setActor(aemUser);
 
     Page page = new Page();

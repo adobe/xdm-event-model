@@ -84,8 +84,7 @@ public class Page extends ActivityStreamObject {
     return "Page{" +
         "title='" + title + '\'' +
         ", pathname='" + path + '\'' +
-        ", id='" + id + '\'' +
-        ", mediaType='" + mediaType + '\'' +
+        ", id='" + id +
         ", type='" + type + '\'' +
         '}';
   }

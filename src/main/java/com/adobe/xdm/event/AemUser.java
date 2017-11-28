@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AemUser extends ActivityStreamObject {
 
+  private String aemUserId;
 
   public AemUser() {
     super();
@@ -33,7 +34,10 @@ public class AemUser extends ActivityStreamObject {
 
   @JsonProperty(XdmContext.XDM_AEM_USER_PREFIX + ":id")
   public String getAemUserId() {
-    return this.getId();
+    return this.aemUserId;
   }
 
+  public void setAemUserId(String aemUserId) {
+    this.aemUserId = aemUserId;
+  }
 }

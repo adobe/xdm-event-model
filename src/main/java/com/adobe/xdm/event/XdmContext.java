@@ -50,11 +50,16 @@ public class XdmContext {
       XDM_BASE_URL + "/content/componentized-page#";
 
   public static final String XDM_EVENT_CREATED_TYPE = "xdmCreated";
+  public static final String XDM_EVENT_CREATED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/created#";
   public static final String XDM_EVENT_DELETED_TYPE = "xdmDeleted";
+  public static final String XDM_EVENT_DELETED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/deleted#";
   public static final String XDM_EVENT_UPDATED_TYPE = "xdmUpdated";
+  public static final String XDM_EVENT_UPDATED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/updated#";
 
   public static final String XDM_EVENT_PUBLISHED_TYPE = "xdmPublished";
+  public static final String XDM_EVENT_PUBLISHED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/published#";
   public static final String XDM_EVENT_UNPUBLISHED_TYPE = "xdmUnpublished";
+  public static final String XDM_EVENT_UNPUBLISHED_JSONLD_IRI = "https://ns.adobe.com/xdm/common/event/unpublished#";
 
   public static final String W3C_ACTIVITYSTREAMS_PREFIX = "activitystreams";
   public static final String W3C_ACTIVITYSTREAMS_JSONLD_IRI = "http://www.w3.org/ns/activitystreams#";
@@ -103,4 +108,31 @@ public class XdmContext {
   public String getXdmAssetIRI() {
     return XDM_ASSET_JSONLD_IRI;
   }
+
+  @JsonProperty(XDM_EVENT_CREATED_TYPE)
+  public String getXdmCreatedIRI() {
+    return XDM_EVENT_CREATED_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_EVENT_UPDATED_TYPE)
+  public String getXdmUpdatedIRI() {
+    return XDM_EVENT_UPDATED_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_EVENT_DELETED_TYPE)
+  public String getXdmDeletedIRI() {
+    return XDM_EVENT_DELETED_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_EVENT_PUBLISHED_TYPE)
+  public String getXdmPublishedIRI() {
+    return XDM_EVENT_PUBLISHED_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_EVENT_UNPUBLISHED_TYPE)
+  public String getXdmUnpublishedIRI() {
+    return XDM_EVENT_UNPUBLISHED_JSONLD_IRI;
+  }
+
+
 }

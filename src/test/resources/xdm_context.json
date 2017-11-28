@@ -7,6 +7,11 @@
     "xdmContentRepository": "http://ns.adobe.com/xdm/content/repository#",
     "xdmAemUser": "http://ns.adobe.com/xdm/aem/user",
     "xdmImsUser": "http://ns.adobe.com/xdm/ims/user#",
-    "xdmAsset": "http://ns.adobe.com/xdm/assets/asset#"
+    "xdmAsset": "http://ns.adobe.com/xdm/assets/asset#",
+    "xdmCreated": "https://ns.adobe.com/xdm/common/event/created#",
+    "xdmDeleted": "https://ns.adobe.com/xdm/common/event/deleted#",
+    "xdmUpdated": "https://ns.adobe.com/xdm/common/event/updated#",
+    "xdmPublished": "https://ns.adobe.com/xdm/common/event/published#",
+    "xdmUnpublished": "https://ns.adobe.com/xdm/common/event/unpublished#"
   }
 }
