@@ -171,7 +171,7 @@ public class SerializationTest {
 
     Page page = new Page();
     page.setTitle("Vintage Collection");
-    page.setPathname("/content/geometrixx/en/vintage.html");
+    page.setPath("/content/geometrixx/en/vintage.html");
     page.setId("http://adobesummit.adobesandbox.com:4502/content/geometrixx/en/vintage.html");
     pageEvent.setObject(page);
     return pageEvent;

@@ -43,11 +43,11 @@ public class Page extends ActivityStreamObject {
   }
 
   @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":path")
-  public String getPathname() {
+  public String getPath() {
     return path;
   }
 
-  public void setPathname(String pathname) {
+  public void setPath(String pathname) {
     this.path = pathname;
   }
 
