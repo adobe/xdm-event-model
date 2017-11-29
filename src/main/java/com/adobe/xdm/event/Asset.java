@@ -25,11 +25,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Asset extends ActivityStreamObject {
 
+  private String assetId;
+
   private String assetName;
 
   private String etag;
 
-  private String pathname;
+  private String path;
+
+  private String format;
+
 
   public Asset() {
     super();
@@ -38,7 +43,11 @@ public class Asset extends ActivityStreamObject {
 
   @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":asset_id")
   public String getAssetId() {
-    return this.getId();
+    return this.assetId;
+  }
+
+  public void setAssetId(String assetId) {
+    this.assetId = assetId;
   }
 
   @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":asset_name")
@@ -55,24 +64,27 @@ public class Asset extends ActivityStreamObject {
     return etag;
   }
 
-  public void setETag(String etag) {
+  public void setEtag(String etag) {
     this.etag = etag;
   }
 
-  @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":pathname")
-  public String getPathname() {
-    return pathname;
+  @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":path")
+  public String getPath() {
+    return path;
   }
 
-  public void setPathname(String pathname) {
-    this.pathname = pathname;
+  public void setPath(String path) {
+    this.path = path;
   }
 
   @JsonProperty(XdmContext.XDM_ASSET_PREFIX + ":format")
   public String getFormat() {
-    return this.getMediaType();
+    return this.format;
   }
 
+  public void setFormat(String format) {
+    this.format = format;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -94,7 +106,10 @@ public class Asset extends ActivityStreamObject {
     if (etag != null ? !etag.equals(asset.etag) : asset.etag != null) {
       return false;
     }
-    return pathname != null ? pathname.equals(asset.pathname) : asset.pathname == null;
+    if (path != null ? !path.equals(asset.path) : asset.path != null) {
+      return false;
+    }
+    return format != null ? format.equals(asset.format) : asset.format == null;
   }
 
   @Override
@@ -102,7 +117,8 @@ public class Asset extends ActivityStreamObject {
     int result = super.hashCode();
     result = 31 * result + (assetName != null ? assetName.hashCode() : 0);
     result = 31 * result + (etag != null ? etag.hashCode() : 0);
-    result = 31 * result + (pathname != null ? pathname.hashCode() : 0);
+    result = 31 * result + (path != null ? path.hashCode() : 0);
+    result = 31 * result + (format != null ? format.hashCode() : 0);
     return result;
   }
 
@@ -111,9 +127,9 @@ public class Asset extends ActivityStreamObject {
     return "Asset{" +
         "  assetName='" + assetName + '\'' +
         ", etag='" + etag + '\'' +
-        ", pathname='" + pathname + '\'' +
+        ", path='" + path + '\'' +
         ", id='" + id + '\'' +
-        ", mediaType='" + mediaType + '\'' +
+        ", format='" + format + '\'' +
         ", type='" + type + '\'' +
         '}';
   }

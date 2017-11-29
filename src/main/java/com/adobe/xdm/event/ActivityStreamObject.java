@@ -29,7 +29,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ActivityStreamObject {
 
   protected String id;
-  protected String mediaType;
   protected String type;
 
   @JsonProperty("@id")
@@ -39,18 +38,6 @@ public class ActivityStreamObject {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
-   * @return the MIME media type of this resource.
-   */
-  @JsonProperty(XdmContext.W3C_ACTIVITYSTREAMS_PREFIX + ":mediaType")
-  public String getMediaType() {
-    return mediaType;
-  }
-
-  public void setMediaType(String mediaType) {
-    this.mediaType = mediaType;
   }
 
   @JsonProperty("@type")
@@ -67,7 +54,7 @@ public class ActivityStreamObject {
     if (this == o) {
       return true;
     }
-    if (o == null || !this.getClass().isAssignableFrom(o.getClass())) {
+    if (o == null || getClass() != o.getClass()) {
       return false;
     }
 
@@ -76,16 +63,12 @@ public class ActivityStreamObject {
     if (id != null ? !id.equals(that.id) : that.id != null) {
       return false;
     }
-    if (mediaType != null ? !mediaType.equals(that.mediaType) : that.mediaType != null) {
-      return false;
-    }
     return type != null ? type.equals(that.type) : that.type == null;
   }
 
   @Override
   public int hashCode() {
     int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (mediaType != null ? mediaType.hashCode() : 0);
     result = 31 * result + (type != null ? type.hashCode() : 0);
     return result;
   }
@@ -94,7 +77,6 @@ public class ActivityStreamObject {
   public String toString() {
     return "ActivityStreamObject{" +
         "id='" + id + '\'' +
-        ", mediaType='" + mediaType + '\'' +
         ", type='" + type + '\'' +
         '}';
   }

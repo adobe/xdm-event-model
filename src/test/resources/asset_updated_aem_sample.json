@@ -4,28 +4,24 @@
   "xdmEventEnvelope:objectType": "xdmAsset",
   "activitystreams:published": "2016-07-16T19:20:30+01:00",
   "activitystreams:to": {
-    "@id": "08B3E5CE5822FC520A494229@AdobeOrg",
     "xdmImsOrg:id": "08B3E5CE5822FC520A494229@AdobeOrg",
     "@type": "xdmImsOrg"
   },
   "activitystreams:generator": {
-    "@id": "AEM-08B3E5CE5822FC520A494229@AdobeOrg_francois.corp.adobe.com",
     "xdmContentRepository:root": "http://francois.corp.adobe.com:4502/",
     "@type": "xdmContentRepository"
   },
   "activitystreams:actor": {
-    "@id": "admin",
     "xdmAemUser:id": "admin",
     "@type": "xdmAemUser"
   },
   "activitystreams:object": {
     "activitystreams:mediaType": "image/png",
     "@type": "xdmAsset",
-    "@id": "urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
     "xdmAsset:asset_id": "urn:aaid:aem:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
     "xdmAsset:asset_name": "Fx_DUKE-small.png",
     "xdmAsset:etag": "6fc55d0389d856ae7deccebba54f110e",
-    "xdmAsset:pathname": "/content/dam/Fx_DUKE-small.png",
+    "xdmAsset:path": "/content/dam/Fx_DUKE-small.png",
     "xdmAsset:format": "image/png"
   },
   "@context": {
@@ -34,6 +30,7 @@
     "xdmAsset": "http://ns.adobe.com/xdm/assets/asset#",
     "xdmImsOrg": "https://ns.adobe.com/xdm/ims/organization#",
     "xdmContentRepository": "https://ns.adobe.com/xdm/content/repository",
-    "xdmAemUser": "https://ns.adobe.com/xdm/aem/user#"
+    "xdmAemUser": "https://ns.adobe.com/xdm/aem/user#",
+    "xdmUpdated": "https://ns.adobe.com/xdm/common/event/updated#"
   }
 }

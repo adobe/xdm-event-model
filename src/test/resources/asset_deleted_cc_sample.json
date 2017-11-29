@@ -3,23 +3,19 @@
   "@type": "xdmDeleted",
   "xdmEventEnvelope:objectType": "xdmAsset",
   "activitystreams:to": {
-    "@id": "D13A1E7053E46A220A4C86E1@AdobeID",
     "xdmImsUser:id": "D13A1E7053E46A220A4C86E1@AdobeID",
     "@type": "xdmImsUser"
   },
   "activitystreams:generator": {
-    "@id": "cc-api-storage.adobe.io",
     "xdmContentRepository:root": "https://cc-api-storage.adobe.io/",
     "@type": "xdmContentRepository"
   },
   "activitystreams:actor": {
-    "@id": "D13A1E7053E46A220A4C86E1@AdobeID",
     "xdmImsUser:id": "D13A1E7053E46A220A4C86E1@AdobeID",
     "@type": "xdmImsUser"
   },
   "activitystreams:object": {
     "@type": "xdmAsset",
-    "@id": "urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
     "xdmAsset:asset_id": "urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185"
   },
   "activitystreams:published": "2016-07-16T19:20:30+01:00",
@@ -28,6 +24,7 @@
     "xdmEventEnvelope": "https://ns.adobe.com/xdm/common/eventenvelope#",
     "xdmAsset": "http://ns.adobe.com/xdm/assets/asset#",
     "xdmImsUser": "https://ns.adobe.com/xdm/ims/user#",
-    "xdmContentRepository": "https://ns.adobe.com/xdm/content/repository"
+    "xdmContentRepository": "https://ns.adobe.com/xdm/content/repository",
+    "xdmDeleted": "https://ns.adobe.com/xdm/common/event/deleted#"
   }
 }
