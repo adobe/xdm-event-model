@@ -62,6 +62,10 @@ public class XdmContext {
   public static final String XDM_EVENT_UNPUBLISHED_TYPE = "xdmUnpublished";
   public static final String XDM_EVENT_UNPUBLISHED_JSONLD_IRI = XDM_BASE_URL + "/common/event/unpublished#";
 
+  public static final String XDM_EVENT_EMITTED_TYPE = "xdmEmitted";
+  public static final String XDM_EVENT_EMITTED_TYPE_JSONLD_IRI = XDM_BASE_URL + "/common/event/emitted#";
+
+
   public static final String W3C_ACTIVITYSTREAMS_PREFIX = "activitystreams";
   public static final String W3C_ACTIVITYSTREAMS_JSONLD_IRI = "http://www.w3.org/ns/activitystreams#";
 
@@ -133,6 +137,11 @@ public class XdmContext {
   @JsonProperty(XDM_EVENT_UNPUBLISHED_TYPE)
   public String getXdmUnpublishedIRI() {
     return XDM_EVENT_UNPUBLISHED_JSONLD_IRI;
+  }
+
+  @JsonProperty(XDM_EVENT_EMITTED_TYPE)
+  public String getXdmEmittedIRI() {
+    return XDM_EVENT_EMITTED_TYPE_JSONLD_IRI;
   }
 
 
