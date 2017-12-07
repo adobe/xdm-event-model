@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Hashtable;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -194,6 +195,41 @@ public class SerializationTest {
 
     assertDeserialization(xdmEvent, "page_unpublished_aem_sample.json", AemPageEvent.class);
   }
+
+
+  private AemOsgiEmittedEvent getAemOsgiEmittedEventSampleEvent() {
+    AemOsgiEmittedEvent aemOsgiEmittedEvent = new AemOsgiEmittedEvent();
+
+    aemOsgiEmittedEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
+    aemOsgiEmittedEvent.setPublished("2016-07-16T19:20:30+01:00");
+    ImsOrg imsOrg = new ImsOrg();
+    imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
+    aemOsgiEmittedEvent.setTo(imsOrg);
+
+    ContentRepository aemInstance = new ContentRepository();
+    aemInstance.setRoot("http://francois.corp.adobe.com:4502/");
+    aemOsgiEmittedEvent.setGenerator(aemInstance);
+
+    Hashtable properties = new Hashtable();
+    properties.put("type","created");
+    properties.put("id","1234");
+    AemOsgiEvent aemOsgiEvent = new AemOsgiEvent();
+    aemOsgiEvent.setTopic("io/adobe/event/sample/sku");
+    aemOsgiEvent.setProperties(properties);
+
+    aemOsgiEmittedEvent.setObject(aemOsgiEvent);
+    return aemOsgiEmittedEvent;
+  }
+
+
+  @Test
+  public void testAemOsgiEmittedEventSampleEventSerialization() throws IOException {
+    AemOsgiEmittedEvent xdmEvent = getAemOsgiEmittedEventSampleEvent();
+    String prettyString = JsonUtils.toPrettyString(xdmEvent);
+    logger.info(prettyString);
+    assertDeserialization(xdmEvent, "custom_osgi_emitted_aem_sample.json", AemOsgiEmittedEvent.class);
+  }
+
 
   @Test
   public void testXdmContextSerialization() throws IOException {

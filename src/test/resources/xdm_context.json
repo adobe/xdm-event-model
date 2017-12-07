@@ -18,6 +18,8 @@
     "xdmUpdated": "https://ns.adobe.com/xdm/common/event/updated#",
 
     "xdmPublished": "https://ns.adobe.com/xdm/common/event/published#",
-    "xdmUnpublished": "https://ns.adobe.com/xdm/common/event/unpublished#"
+    "xdmUnpublished": "https://ns.adobe.com/xdm/common/event/unpublished#",
+
+    "xdmEmitted" : "https://ns.adobe.com/xdm/common/event/emitted#"
   }
 }
