@@ -14,10 +14,9 @@
 
 The XDM event-model is based on [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld) based
 
-For now the detailed specifications are available at
-* https://git.corp.adobe.com/majindal/event-model/tree/as-2-snapshot
-* https://git.corp.adobe.com/AdobeCloudPlatform/xdm/tree/master/schemas/common
-* https://git.corp.adobe.com/AdobeCloudPlatform/xdm/tree/master/schemas/assets
+for more detailed specifications, visit
+* https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=AdobeCloudPlatform&title=XDM+Event+Envelope
+* https://github.com/adobe/xdm/tree/master/schemas/common
 
 
 Have a look at the unit tests and you'll have a good understanding of the expected json serialization.
@@ -38,9 +37,9 @@ This Library is associated with 2 builds:
  
 ## Notes, docs and pointers
 
-As we chose to serve the json-ld `@context` through link header [9] and keep fixed json-ld prefixes.
-We could base this implementation of plain and simple jackson [10] serialization,
-otherwise for full-fledged json-ld implementation hydra [0] and jsonld-java [8] would have been used
+Note that as we chose to serve the json-ld `@context` through link header [9] and keep fixed json-ld prefixes,
+we based this implementation of plain and simple jackson [10] serialization,
+otherwise for full-fledged json-ld implementation hydra [0] and jsonld-java [8] could have been used
 
 * [0] http://www.hydra-cg.com/
 * [1] https://github.com/dschulten/hydra-java

@@ -31,6 +31,7 @@ public class AemOsgiEvent extends ActivityStreamObject {
 
   public AemOsgiEvent() {
     super();
+    this.type = XdmContext.XDM_OSGI_EVENT_TYPE;
   }
 
   public String getTopic() {
