@@ -24,24 +24,27 @@ import java.util.Hashtable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AemOsgiEvent extends ActivityStreamObject {
+public class OsgiEvent extends ActivityStreamObject {
 
   String topic;
   Hashtable properties;
 
-  public AemOsgiEvent() {
+  public OsgiEvent() {
     super();
-    this.type = XdmContext.XDM_OSGI_EVENT_TYPE;
+    this.type = XdmContext.OSGI_EVENT_TYPE;
   }
 
+  @JsonProperty(XdmContext.OSGI_EVENT_PREFIX + ":topic")
   public String getTopic() {
     return topic;
   }
 
   public void setTopic(String topic) {
     this.topic = topic;
+    this.type =  XdmContext.OSGI_EVENT_TYPE +":"+topic;
   }
 
+  @JsonProperty(XdmContext.OSGI_EVENT_PREFIX + ":properties")
   public Hashtable getProperties() {
     return properties;
   }
@@ -62,7 +65,7 @@ public class AemOsgiEvent extends ActivityStreamObject {
       return false;
     }
 
-    AemOsgiEvent that = (AemOsgiEvent) o;
+    OsgiEvent that = (OsgiEvent) o;
 
     if (topic != null ? !topic.equals(that.topic) : that.topic != null) {
       return false;

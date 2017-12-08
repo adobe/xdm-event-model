@@ -28,7 +28,9 @@ public class XdmContext {
   public static final String XDM_AEM_USER_PREFIX = XDM_AEM_USER_TYPE;
   public static final String XDM_AEM_USER_JSONLD_IRI = XDM_EXTENSION_BASE_URL + "/aem/user";
 
-  public static final String XDM_OSGI_EVENT_TYPE = "xdmOsgiEvent";
+  public static final String OSGI_EVENT_TYPE = "osgiEvent";
+  public static final String OSGI_EVENT_PREFIX = OSGI_EVENT_TYPE;
+  public static final String OSGI_EVENT_JSONLD_IRI = "https://osgi.org/javadoc/r4v42/org/osgi/service/event/Event.html";
 
   public static final String XDM_ASSET_TYPE = "xdmAsset";
   public static final String XDM_ASSET_PREFIX = XDM_ASSET_TYPE;
@@ -145,6 +147,9 @@ public class XdmContext {
   public String getXdmEmittedIRI() {
     return XDM_EVENT_EMITTED_TYPE_JSONLD_IRI;
   }
+
+  @JsonProperty(OSGI_EVENT_TYPE)
+  public String getOsgiEventdIRI() { return OSGI_EVENT_JSONLD_IRI; }
 
 
 }

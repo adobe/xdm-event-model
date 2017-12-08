@@ -196,40 +196,37 @@ public class SerializationTest {
     assertDeserialization(xdmEvent, "page_unpublished_aem_sample.json", AemPageEvent.class);
   }
 
+  private OsgiEmittedEvent getOsgiEmittedEventSampleEvent() {
+    OsgiEmittedEvent osgiEmittedEvent = new OsgiEmittedEvent();
 
-  private AemOsgiEmittedEvent getAemOsgiEmittedEventSampleEvent() {
-    AemOsgiEmittedEvent aemOsgiEmittedEvent = new AemOsgiEmittedEvent();
-
-    aemOsgiEmittedEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
-    aemOsgiEmittedEvent.setPublished("2016-07-16T19:20:30+01:00");
+    osgiEmittedEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
+    osgiEmittedEvent.setPublished("2016-07-16T19:20:30+01:00");
     ImsOrg imsOrg = new ImsOrg();
     imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
-    aemOsgiEmittedEvent.setTo(imsOrg);
+    osgiEmittedEvent.setTo(imsOrg);
 
     ContentRepository aemInstance = new ContentRepository();
     aemInstance.setRoot("http://francois.corp.adobe.com:4502/");
-    aemOsgiEmittedEvent.setGenerator(aemInstance);
+    osgiEmittedEvent.setGenerator(aemInstance);
 
     Hashtable properties = new Hashtable();
     properties.put("type","created");
     properties.put("id","1234");
-    AemOsgiEvent aemOsgiEvent = new AemOsgiEvent();
-    aemOsgiEvent.setTopic("io/adobe/event/sample/sku");
-    aemOsgiEvent.setProperties(properties);
+    OsgiEvent osgiEvent = new OsgiEvent();
+    osgiEvent.setTopic("io/adobe/event/sample/sku");
+    osgiEvent.setProperties(properties);
 
-    aemOsgiEmittedEvent.setObject(aemOsgiEvent);
-    return aemOsgiEmittedEvent;
+    osgiEmittedEvent.setObject(osgiEvent);
+    return osgiEmittedEvent;
   }
-
 
   @Test
-  public void testAemOsgiEmittedEventSampleEventSerialization() throws IOException {
-    AemOsgiEmittedEvent xdmEvent = getAemOsgiEmittedEventSampleEvent();
+  public void testOsgiEmittedEventSampleEventSerialization() throws IOException {
+    OsgiEmittedEvent xdmEvent = getOsgiEmittedEventSampleEvent();
     String prettyString = JsonUtils.toPrettyString(xdmEvent);
     logger.info(prettyString);
-    assertDeserialization(xdmEvent, "custom_osgi_emitted_aem_sample.json", AemOsgiEmittedEvent.class);
+    assertDeserialization(xdmEvent, "custom_osgi_emitted_aem_sample.json", OsgiEmittedEvent.class);
   }
-
 
   @Test
   public void testXdmContextSerialization() throws IOException {
@@ -238,13 +235,11 @@ public class SerializationTest {
     logger.info(prettyString);
   }
 
-
   private String readFile(String relativePath)
       throws IOException {
     String absoluteFilePath = new File("src/test/resources").getAbsolutePath() + "/" + relativePath;
     byte[] encoded = Files.readAllBytes(Paths.get(absoluteFilePath));
     return new String(encoded, StandardCharsets.UTF_8);
   }
-
 
 }

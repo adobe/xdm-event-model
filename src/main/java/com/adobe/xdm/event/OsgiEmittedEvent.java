@@ -19,17 +19,14 @@ package com.adobe.xdm.event;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import java.util.Hashtable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AemOsgiEmittedEvent extends XdmEvent<AemOsgiEvent, ImsOrg, ContentRepository, AemUser> {
+public class OsgiEmittedEvent extends XdmEvent<OsgiEvent, ImsOrg, ContentRepository, AemUser> {
 
-
-
-  public AemOsgiEmittedEvent() {
+  public OsgiEmittedEvent() {
     super();
-    this.object = new AemOsgiEvent();
+    this.object = new OsgiEvent();
     this.type = XdmContext.XDM_EVENT_EMITTED_TYPE;
   }
 

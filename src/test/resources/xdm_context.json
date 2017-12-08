@@ -20,6 +20,8 @@
     "xdmPublished": "https://ns.adobe.com/xdm/common/event/published#",
     "xdmUnpublished": "https://ns.adobe.com/xdm/common/event/unpublished#",
 
-    "xdmEmitted" : "https://ns.adobe.com/xdm/common/event/emitted#"
+    "xdmEmitted" : "https://ns.adobe.com/xdm/common/event/emitted#",
+
+    "osgiEvent" : "https://osgi.org/javadoc/r4v42/org/osgi/service/event/Event.html"
   }
 }
