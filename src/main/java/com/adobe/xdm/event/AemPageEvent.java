@@ -19,10 +19,12 @@ package com.adobe.xdm.event;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AemPageEvent extends XdmEvent<Page, ImsOrg, ContentRepository, AemUser> {
+public class AemPageEvent extends XdmEvent<Page, ImsOrg, ContentRepository, AemUser>  implements
+    Serializable {
 
   public AemPageEvent() {
     super();
