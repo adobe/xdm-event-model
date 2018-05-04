@@ -18,6 +18,14 @@ package com.adobe.xdm.event;
 
 import static org.junit.Assert.assertTrue;
 
+import com.adobe.xdm.Xdm;
+import com.adobe.xdm.assets.Asset;
+import com.adobe.xdm.content.ContentRepository;
+import com.adobe.xdm.content.Page;
+import com.adobe.xdm.extensions.aem.AemUser;
+import com.adobe.xdm.extensions.aem.OsgiEvent;
+import com.adobe.xdm.extensions.ims.ImsOrg;
+import com.adobe.xdm.extensions.ims.ImsUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;

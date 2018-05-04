@@ -14,7 +14,7 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,34 +22,32 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
+/**
+ * ActivityStreams Object
+ */
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Page extends ActivityStreamObject implements Serializable {
+public class ActivityStreamObject implements Serializable {
 
-  private String title;
-  private String path;
+  protected String id;
+  protected String type;
 
-  public Page() {
-    super();
-    this.type = XdmContext.XDM_COMPONENTIZED_PAGE_TYPE;
+  @JsonProperty("@id")
+  public String getId() {
+    return id;
   }
 
-  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":title")
-  public String getTitle() {
-    return title;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  @JsonProperty("@type")
+  public String getType() {
+    return type;
   }
 
-  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":path")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String pathname) {
-    this.path = pathname;
+  public void setType(String type) {
+    this.type = type;
   }
 
   @Override
@@ -60,32 +58,26 @@ public class Page extends ActivityStreamObject implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    if (!super.equals(o)) {
+
+    ActivityStreamObject that = (ActivityStreamObject) o;
+
+    if (id != null ? !id.equals(that.id) : that.id != null) {
       return false;
     }
-
-    Page page = (Page) o;
-
-    if (title != null ? !title.equals(page.title) : page.title != null) {
-      return false;
-    }
-    return path != null ? path.equals(page.path) : page.path == null;
+    return type != null ? type.equals(that.type) : that.type == null;
   }
 
   @Override
   public int hashCode() {
-    int result = super.hashCode();
-    result = 31 * result + (title != null ? title.hashCode() : 0);
-    result = 31 * result + (path != null ? path.hashCode() : 0);
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (type != null ? type.hashCode() : 0);
     return result;
   }
 
   @Override
   public String toString() {
-    return "Page{" +
-        "title='" + title + '\'' +
-        ", pathname='" + path + '\'' +
-        ", id='" + id +
+    return "ActivityStreamObject{" +
+        "id='" + id + '\'' +
         ", type='" + type + '\'' +
         '}';
   }

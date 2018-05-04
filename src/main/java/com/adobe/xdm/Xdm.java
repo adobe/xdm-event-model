@@ -14,8 +14,9 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm;
 
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Xdm {

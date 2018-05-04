@@ -16,6 +16,11 @@
  */
 package com.adobe.xdm.event;
 
+import com.adobe.xdm.assets.Asset;
+import com.adobe.xdm.common.XdmEvent;
+import com.adobe.xdm.content.ContentRepository;
+import com.adobe.xdm.extensions.aem.AemUser;
+import com.adobe.xdm.extensions.ims.ImsOrg;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

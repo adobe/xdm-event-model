@@ -14,8 +14,10 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.extensions.aem;
 
+import com.adobe.xdm.common.XdmContext;
+import com.adobe.xdm.external.ActivityStreamObject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -24,22 +26,21 @@ import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImsOrg extends ActivityStreamObject implements Serializable {
+public class AemUser extends ActivityStreamObject implements Serializable {
 
-  private String imsOrgId;
+  private String aemUserId;
 
-  public ImsOrg() {
+  public AemUser() {
     super();
-    this.type = XdmContext.XDM_IMS_ORG_TYPE;
+    this.type = XdmContext.XDM_AEM_USER_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_IMS_ORG_PREFIX + ":id")
-  public String getImsOrgId() {
-    return imsOrgId;
+  @JsonProperty(XdmContext.XDM_AEM_USER_PREFIX + ":id")
+  public String getAemUserId() {
+    return this.aemUserId;
   }
 
-
-  public void setImsOrgId(String imsOrgId) {
-    this.imsOrgId = imsOrgId;
+  public void setAemUserId(String aemUserId) {
+    this.aemUserId = aemUserId;
   }
 }

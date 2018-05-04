@@ -14,33 +14,33 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.extensions.ims;
 
+import com.adobe.xdm.common.XdmContext;
+import com.adobe.xdm.external.ActivityStreamObject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
-
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContentRepository extends ActivityStreamObject implements Serializable {
+public class ImsUser extends ActivityStreamObject implements Serializable {
 
-  protected String root;
+  private String imsUserId;
 
-  public ContentRepository() {
+  public ImsUser() {
     super();
-    this.type = XdmContext.XDM_CONTENT_REPOSITORY_TYPE;
+    this.type = XdmContext.XDM_IMS_USER_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_CONTENT_REPOSITORY_PREFIX + ":root")
-  public String getRoot() {
-    return root;
+  @JsonProperty(XdmContext.XDM_IMS_USER_PREFIX + ":id")
+  public String getImsUserId() {
+    return this.imsUserId;
   }
 
-  public void setRoot(String root) {
-    this.root = root;
+  public void setImsUserId(String imsUserId) {
+    this.imsUserId = imsUserId;
   }
-
 }
