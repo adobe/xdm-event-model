@@ -17,7 +17,7 @@
 package com.adobe.xdm.extensions.aem;
 
 import com.adobe.xdm.common.XdmContext;
-import com.adobe.xdm.external.ActivityStreamObject;
+import com.adobe.xdm.XdmObject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -27,7 +27,7 @@ import java.util.Hashtable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OsgiEvent extends ActivityStreamObject implements Serializable {
+public class OsgiEvent extends XdmObject implements Serializable {
 
   String topic;
   Hashtable properties;

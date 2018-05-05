@@ -17,7 +17,7 @@
 package com.adobe.xdm.assets;
 
 import com.adobe.xdm.common.XdmContext;
-import com.adobe.xdm.external.ActivityStreamObject;
+import com.adobe.xdm.XdmObject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -26,7 +26,7 @@ import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Asset extends ActivityStreamObject implements Serializable {
+public class Asset extends XdmObject implements Serializable {
 
   private String assetId;
 

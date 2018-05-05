@@ -14,7 +14,7 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.external;
+package com.adobe.xdm;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,7 +27,7 @@ import java.io.Serializable;
  */
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ActivityStreamObject implements Serializable {
+public class XdmObject implements Serializable {
 
   protected String id;
   protected String type;
@@ -59,7 +59,7 @@ public class ActivityStreamObject implements Serializable {
       return false;
     }
 
-    ActivityStreamObject that = (ActivityStreamObject) o;
+    XdmObject that = (XdmObject) o;
 
     if (id != null ? !id.equals(that.id) : that.id != null) {
       return false;
@@ -76,7 +76,7 @@ public class ActivityStreamObject implements Serializable {
 
   @Override
   public String toString() {
-    return "ActivityStreamObject{" +
+    return "XdmObject{" +
         "id='" + id + '\'' +
         ", type='" + type + '\'' +
         '}';
