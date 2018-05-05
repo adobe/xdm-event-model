@@ -118,6 +118,11 @@ public class XdmContext {
     return XDM_ASSET_JSONLD_IRI;
   }
 
+  @JsonProperty("xdmDirectory")
+  public String getXdmDirectoryIRI() {
+    return "https://ns.adobe.com/adobecloud/core/1.0/directory#";
+  }
+
   @JsonProperty(XDM_EVENT_CREATED_TYPE)
   public String getXdmCreatedIRI() {
     return XDM_EVENT_CREATED_JSONLD_IRI;
@@ -149,7 +154,8 @@ public class XdmContext {
   }
 
   @JsonProperty(OSGI_EVENT_TYPE)
-  public String getOsgiEventdIRI() { return OSGI_EVENT_JSONLD_IRI; }
-
+  public String getOsgiEventdIRI() {
+    return OSGI_EVENT_JSONLD_IRI;
+  }
 
 }

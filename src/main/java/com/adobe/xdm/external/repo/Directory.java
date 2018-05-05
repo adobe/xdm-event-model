@@ -28,7 +28,7 @@ public class Directory extends XdmObject {
   private String format;
 
   public Directory() {
-    this.type = "https://ns.adobe.com/adobecloud/core/1.0/directory";
+    this.type = "xdmDirectory";
   }
 
   @JsonProperty("repo:assetID")
