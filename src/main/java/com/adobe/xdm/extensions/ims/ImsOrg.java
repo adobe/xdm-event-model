@@ -44,4 +44,13 @@ public class ImsOrg extends XdmObject implements Serializable {
   public void setImsOrgId(String imsOrgId) {
     this.imsOrgId = imsOrgId;
   }
+
+  @Override
+  public String toString() {
+    return "ImsOrg{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", imsOrgId='" + imsOrgId + '\'' +
+        '}';
+  }
 }

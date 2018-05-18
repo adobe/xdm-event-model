@@ -128,12 +128,13 @@ public class Asset extends XdmObject implements Serializable {
   @Override
   public String toString() {
     return "Asset{" +
-        "  assetName='" + assetName + '\'' +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", assetId='" + assetId + '\'' +
+        ", assetName='" + assetName + '\'' +
         ", etag='" + etag + '\'' +
         ", path='" + path + '\'' +
-        ", id='" + id + '\'' +
         ", format='" + format + '\'' +
-        ", type='" + type + '\'' +
         '}';
   }
 }

@@ -43,4 +43,13 @@ public class ImsUser extends XdmObject implements Serializable {
   public void setImsUserId(String imsUserId) {
     this.imsUserId = imsUserId;
   }
+
+  @Override
+  public String toString() {
+    return "ImsUser{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", imsUserId='" + imsUserId + '\'' +
+        '}';
+  }
 }

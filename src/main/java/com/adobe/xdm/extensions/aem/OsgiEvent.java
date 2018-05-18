@@ -86,11 +86,11 @@ public class OsgiEvent extends XdmObject implements Serializable {
 
   @Override
   public String toString() {
-    return "AemOsgiEvent{" +
-        "topic='" + topic + '\'' +
-        ", properties=" + properties +
-        ", id='" + id + '\'' +
+    return "OsgiEvent{" +
+        "id='" + id + '\'' +
         ", type='" + type + '\'' +
+        ", topic='" + topic + '\'' +
+        ", properties=" + properties +
         '}';
   }
 }

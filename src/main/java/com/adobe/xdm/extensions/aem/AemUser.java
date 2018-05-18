@@ -43,4 +43,13 @@ public class AemUser extends XdmObject implements Serializable {
   public void setAemUserId(String aemUserId) {
     this.aemUserId = aemUserId;
   }
+
+  @Override
+  public String toString() {
+    return "AemUser{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", aemUserId='" + aemUserId + '\'' +
+        '}';
+  }
 }

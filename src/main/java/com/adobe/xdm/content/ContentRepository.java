@@ -45,4 +45,12 @@ public class ContentRepository extends XdmObject implements Serializable {
     this.root = root;
   }
 
+  @Override
+  public String toString() {
+    return "ContentRepository{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", root='" + root + '\'' +
+        '}';
+  }
 }

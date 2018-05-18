@@ -16,11 +16,11 @@
   },
   "activitystreams:object": {
     "@type": "xdmDirectory",
-    "repo:assetID": "urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
-    "repo:name": "example",
-    "repo:etag": "6fc55d0389d856ae7deccebba54f110e",
-    "repo:path": "/MyFolder/example",
-    "dc:format": "application/vnd.adobecloud.directory+json"
+    "xdmDirectory:asset_id": "urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185",
+    "xdmDirectory:name": "example",
+    "xdmDirectory:etag": "6fc55d0389d856ae7deccebba54f110e",
+    "xdmDirectory:path": "/MyFolder/example",
+    "xdmDirectory:format": "application/vnd.adobecloud.directory+json"
   },
   "activitystreams:published": "2016-07-16T19:20:30+01:00",
   "@context": {

@@ -85,10 +85,10 @@ public class Page extends XdmObject implements Serializable {
   @Override
   public String toString() {
     return "Page{" +
-        "title='" + title + '\'' +
-        ", pathname='" + path + '\'' +
-        ", id='" + id +
+        "id='" + id + '\'' +
         ", type='" + type + '\'' +
+        ", title='" + title + '\'' +
+        ", path='" + path + '\'' +
         '}';
   }
 }

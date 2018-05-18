@@ -16,6 +16,9 @@
  */
 package com.adobe.xdm.external.repo;
 
+import static com.adobe.xdm.common.XdmContext.XDM_DIRECTORY_PREFIX;
+import static com.adobe.xdm.common.XdmContext.XDM_DIRECTORY_TYPE;
+
 import com.adobe.xdm.XdmObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,10 +31,10 @@ public class Directory extends XdmObject {
   private String format;
 
   public Directory() {
-    this.type = "xdmDirectory";
+    this.type = XDM_DIRECTORY_TYPE;
   }
 
-  @JsonProperty("repo:assetID")
+  @JsonProperty(XDM_DIRECTORY_PREFIX + ":asset_id")
   public String getAssetId() {
     return assetId;
   }
@@ -40,7 +43,7 @@ public class Directory extends XdmObject {
     this.assetId = assetId;
   }
 
-  @JsonProperty("repo:name")
+  @JsonProperty(XDM_DIRECTORY_PREFIX + ":name")
   public String getName() {
     return name;
   }
@@ -49,7 +52,7 @@ public class Directory extends XdmObject {
     this.name = name;
   }
 
-  @JsonProperty("repo:path")
+  @JsonProperty(XDM_DIRECTORY_PREFIX + ":path")
   public String getPath() {
     return path;
   }
@@ -58,7 +61,7 @@ public class Directory extends XdmObject {
     this.path = path;
   }
 
-  @JsonProperty("repo:etag")
+  @JsonProperty(XDM_DIRECTORY_PREFIX + ":etag")
   public String getEtag() {
     return etag;
   }
@@ -67,7 +70,7 @@ public class Directory extends XdmObject {
     this.etag = etag;
   }
 
-  @JsonProperty("dc:format")
+  @JsonProperty(XDM_DIRECTORY_PREFIX + ":format")
   public String getFormat() {
     return format;
   }
@@ -124,6 +127,8 @@ public class Directory extends XdmObject {
         ", path='" + path + '\'' +
         ", etag='" + etag + '\'' +
         ", format='" + format + '\'' +
+        ", id='" + id + '\'' +
+        ", type='" + type + '\'' +
         '}';
   }
 }

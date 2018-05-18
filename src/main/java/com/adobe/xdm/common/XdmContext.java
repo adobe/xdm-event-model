@@ -36,6 +36,10 @@ public class XdmContext {
   public static final String XDM_ASSET_PREFIX = XDM_ASSET_TYPE;
   public static final String XDM_ASSET_JSONLD_IRI = XDM_BASE_URL + "/assets/asset#";
 
+  public static final String XDM_DIRECTORY_TYPE = "xdmDirectory";
+  public static final String XDM_DIRECTORY_PREFIX = XDM_DIRECTORY_TYPE;
+  public static final String XDM_DIRECTORY_JSONLD_IRI = "https://ns.adobe.com/adobecloud/core/1.0/directory#";
+
   public static final String XDM_IMS_ORG_TYPE = "xdmImsOrg";
   public static final String XDM_IMS_ORG_PREFIX = XDM_IMS_ORG_TYPE;
   public static final String XDM_IMS_ORG_JSONLD_IRI = XDM_EXTENSION_BASE_URL + "/ims/organization#";
@@ -120,7 +124,7 @@ public class XdmContext {
 
   @JsonProperty("xdmDirectory")
   public String getXdmDirectoryIRI() {
-    return "https://ns.adobe.com/adobecloud/core/1.0/directory#";
+    return XDM_DIRECTORY_JSONLD_IRI;
   }
 
   @JsonProperty(XDM_EVENT_CREATED_TYPE)
