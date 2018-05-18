@@ -16,18 +16,17 @@
  */
 package com.adobe.xdm.content;
 
-import com.adobe.xdm.common.XdmContext;
 import com.adobe.xdm.XdmObject;
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContentRepository extends XdmObject implements Serializable {
+public class ContentRepository extends XdmObject {
 
   protected String root;
 

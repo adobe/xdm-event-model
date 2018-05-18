@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
@@ -30,7 +29,7 @@ public class XdmEvent
     <Ob extends XdmObject,
         To extends XdmObject,
         Ge extends XdmObject,
-        Ac extends XdmObject> implements Serializable {
+        Ac extends XdmObject> {
 
   protected String id;
   protected String type;
