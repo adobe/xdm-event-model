@@ -14,17 +14,18 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.assets;
 
+import com.adobe.xdm.XdmObject;
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Asset extends ActivityStreamObject implements Serializable {
+public class Asset extends XdmObject {
 
   private String assetId;
 
@@ -126,12 +127,13 @@ public class Asset extends ActivityStreamObject implements Serializable {
   @Override
   public String toString() {
     return "Asset{" +
-        "  assetName='" + assetName + '\'' +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", assetId='" + assetId + '\'' +
+        ", assetName='" + assetName + '\'' +
         ", etag='" + etag + '\'' +
         ", path='" + path + '\'' +
-        ", id='" + id + '\'' +
         ", format='" + format + '\'' +
-        ", type='" + type + '\'' +
         '}';
   }
 }

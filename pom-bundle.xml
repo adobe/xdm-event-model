@@ -26,7 +26,7 @@
   <groupId>com.adobe.xdm.event</groupId>
   <artifactId>com.adobe.xdm.event.xdm-event-model</artifactId>
   <packaging>bundle</packaging>
-  <version>0.32.999</version>
+  <version>0.41.000</version>
 
   <properties>
     <sling.java.version>8</sling.java.version>

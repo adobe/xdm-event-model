@@ -14,7 +14,7 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.common;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +35,10 @@ public class XdmContext {
   public static final String XDM_ASSET_TYPE = "xdmAsset";
   public static final String XDM_ASSET_PREFIX = XDM_ASSET_TYPE;
   public static final String XDM_ASSET_JSONLD_IRI = XDM_BASE_URL + "/assets/asset#";
+
+  public static final String XDM_DIRECTORY_TYPE = "xdmDirectory";
+  public static final String XDM_DIRECTORY_PREFIX = XDM_DIRECTORY_TYPE;
+  public static final String XDM_DIRECTORY_JSONLD_IRI = "https://ns.adobe.com/adobecloud/core/1.0/directory#";
 
   public static final String XDM_IMS_ORG_TYPE = "xdmImsOrg";
   public static final String XDM_IMS_ORG_PREFIX = XDM_IMS_ORG_TYPE;
@@ -118,6 +122,11 @@ public class XdmContext {
     return XDM_ASSET_JSONLD_IRI;
   }
 
+  @JsonProperty("xdmDirectory")
+  public String getXdmDirectoryIRI() {
+    return XDM_DIRECTORY_JSONLD_IRI;
+  }
+
   @JsonProperty(XDM_EVENT_CREATED_TYPE)
   public String getXdmCreatedIRI() {
     return XDM_EVENT_CREATED_JSONLD_IRI;
@@ -149,7 +158,8 @@ public class XdmContext {
   }
 
   @JsonProperty(OSGI_EVENT_TYPE)
-  public String getOsgiEventdIRI() { return OSGI_EVENT_JSONLD_IRI; }
-
+  public String getOsgiEventdIRI() {
+    return OSGI_EVENT_JSONLD_IRI;
+  }
 
 }

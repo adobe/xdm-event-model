@@ -16,13 +16,12 @@
  */
 package com.adobe.xdm.event;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Xdm {
+import com.adobe.xdm.common.XdmContext;
 
-  @JsonProperty("@context")
-  public XdmContext getXdmContext() {
-    return new XdmContext();
+public class CCDirectoryCreatedEvent extends CCDirectoryEvent {
+
+  public CCDirectoryCreatedEvent() {
+    this.type = XdmContext.XDM_EVENT_CREATED_TYPE;
   }
-
 }

@@ -14,22 +14,22 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.common;
 
+import com.adobe.xdm.XdmObject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class XdmEvent
-    <Ob extends ActivityStreamObject,
-        To extends ActivityStreamObject,
-        Ge extends ActivityStreamObject,
-        Ac extends ActivityStreamObject> implements Serializable {
+    <Ob extends XdmObject,
+        To extends XdmObject,
+        Ge extends XdmObject,
+        Ac extends XdmObject> {
 
   protected String id;
   protected String type;

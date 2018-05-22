@@ -14,17 +14,18 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.extensions.ims;
 
+import com.adobe.xdm.XdmObject;
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImsOrg extends ActivityStreamObject implements Serializable {
+public class ImsOrg extends XdmObject {
 
   private String imsOrgId;
 
@@ -41,5 +42,14 @@ public class ImsOrg extends ActivityStreamObject implements Serializable {
 
   public void setImsOrgId(String imsOrgId) {
     this.imsOrgId = imsOrgId;
+  }
+
+  @Override
+  public String toString() {
+    return "ImsOrg{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", imsOrgId='" + imsOrgId + '\'' +
+        '}';
   }
 }

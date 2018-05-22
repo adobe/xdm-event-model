@@ -14,17 +14,18 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.extensions.aem;
 
+import com.adobe.xdm.XdmObject;
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AemUser extends ActivityStreamObject implements Serializable {
+public class AemUser extends XdmObject {
 
   private String aemUserId;
 
@@ -40,5 +41,14 @@ public class AemUser extends ActivityStreamObject implements Serializable {
 
   public void setAemUserId(String aemUserId) {
     this.aemUserId = aemUserId;
+  }
+
+  @Override
+  public String toString() {
+    return "AemUser{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", aemUserId='" + aemUserId + '\'' +
+        '}';
   }
 }

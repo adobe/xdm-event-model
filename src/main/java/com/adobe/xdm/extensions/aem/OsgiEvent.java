@@ -14,42 +14,45 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.extensions.aem;
 
+import com.adobe.xdm.XdmObject;
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
+import java.util.Hashtable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Page extends ActivityStreamObject implements Serializable {
+public class OsgiEvent extends XdmObject {
 
-  private String title;
-  private String path;
+  String topic;
+  Hashtable properties;
 
-  public Page() {
+  public OsgiEvent() {
     super();
-    this.type = XdmContext.XDM_COMPONENTIZED_PAGE_TYPE;
+    this.type = XdmContext.OSGI_EVENT_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":title")
-  public String getTitle() {
-    return title;
+  @JsonProperty(XdmContext.OSGI_EVENT_PREFIX + ":topic")
+  public String getTopic() {
+    return topic;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setTopic(String topic) {
+    this.topic = topic;
+    this.type =  XdmContext.OSGI_EVENT_TYPE +":"+topic;
   }
 
-  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":path")
-  public String getPath() {
-    return path;
+  @JsonProperty(XdmContext.OSGI_EVENT_PREFIX + ":properties")
+  public Hashtable getProperties() {
+    return properties;
   }
 
-  public void setPath(String pathname) {
-    this.path = pathname;
+  public void setProperties(Hashtable properties) {
+    this.properties = properties;
   }
 
   @Override
@@ -64,29 +67,29 @@ public class Page extends ActivityStreamObject implements Serializable {
       return false;
     }
 
-    Page page = (Page) o;
+    OsgiEvent that = (OsgiEvent) o;
 
-    if (title != null ? !title.equals(page.title) : page.title != null) {
+    if (topic != null ? !topic.equals(that.topic) : that.topic != null) {
       return false;
     }
-    return path != null ? path.equals(page.path) : page.path == null;
+    return properties != null ? properties.equals(that.properties) : that.properties == null;
   }
 
   @Override
   public int hashCode() {
     int result = super.hashCode();
-    result = 31 * result + (title != null ? title.hashCode() : 0);
-    result = 31 * result + (path != null ? path.hashCode() : 0);
+    result = 31 * result + (topic != null ? topic.hashCode() : 0);
+    result = 31 * result + (properties != null ? properties.hashCode() : 0);
     return result;
   }
 
   @Override
   public String toString() {
-    return "Page{" +
-        "title='" + title + '\'' +
-        ", pathname='" + path + '\'' +
-        ", id='" + id +
+    return "OsgiEvent{" +
+        "id='" + id + '\'' +
         ", type='" + type + '\'' +
+        ", topic='" + topic + '\'' +
+        ", properties=" + properties +
         '}';
   }
 }

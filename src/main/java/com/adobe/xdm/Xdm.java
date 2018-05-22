@@ -14,20 +14,16 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm;
 
 import com.adobe.xdm.common.XdmContext;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class AemPageUnpublishedEvent extends AemPageEvent {
+public class Xdm {
 
-  public AemPageUnpublishedEvent() {
-    super();
-    this.type = XdmContext.XDM_EVENT_UNPUBLISHED_TYPE;
+  @JsonProperty("@context")
+  public XdmContext getXdmContext() {
+    return new XdmContext();
   }
 
 }

@@ -18,6 +18,15 @@ package com.adobe.xdm.event;
 
 import static org.junit.Assert.assertTrue;
 
+import com.adobe.xdm.Xdm;
+import com.adobe.xdm.assets.Asset;
+import com.adobe.xdm.content.ContentRepository;
+import com.adobe.xdm.content.Page;
+import com.adobe.xdm.extensions.aem.AemUser;
+import com.adobe.xdm.extensions.aem.OsgiEvent;
+import com.adobe.xdm.extensions.ims.ImsOrg;
+import com.adobe.xdm.extensions.ims.ImsUser;
+import com.adobe.xdm.external.repo.Directory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
@@ -63,6 +72,28 @@ public class SerializationTest {
     return assetEvent;
   }
 
+  private CCDirectoryEvent getCCDirectorySampleEvent(CCDirectoryEvent directoryEvent) {
+    directoryEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
+    directoryEvent.setPublished("2016-07-16T19:20:30+01:00");
+    ImsUser imsUser = new ImsUser();
+    imsUser.setImsUserId("D13A1E7053E46A220A4C86E1@AdobeID");
+    directoryEvent.setTo(imsUser);
+    directoryEvent.setActor(imsUser);
+
+    ContentRepository creativeCloud = new ContentRepository();
+    creativeCloud.setRoot("https://cc-api-storage.adobe.io/");
+    directoryEvent.setGenerator(creativeCloud);
+
+    Directory directory = new Directory();
+    directory.setFormat("application/vnd.adobecloud.directory+json");
+    directory.setAssetId("urn:aaid:sc:us:4123ba4c-93a8-4c5d-b979-ffbbe4318185");
+    directory.setName("example");
+    directory.setEtag("6fc55d0389d856ae7deccebba54f110e");
+    directory.setPath("/MyFolder/example");
+    directoryEvent.setObject(directory);
+    return directoryEvent;
+  }
+
   private <T> void assertDeserialization(T xdmEvent, String xdmEventJsonFile,
       Class<T> xdmEventClass)
       throws IOException {
@@ -97,6 +128,14 @@ public class SerializationTest {
     logger.info(prettyString);
 
     assertDeserialization(assetEvent, "asset_deleted_cc_sample.json", CCAssetEvent.class);
+  }
+
+  @Test
+  public void testCCDirectoryCreatedEventSerialization() throws IOException {
+    CCDirectoryEvent xdmEvent = getCCDirectorySampleEvent(new CCDirectoryCreatedEvent());
+    String prettyString = JsonUtils.toPrettyString(xdmEvent);
+    logger.info(prettyString);
+    assertDeserialization(xdmEvent, "directory_created_cc_sample.json", CCDirectoryEvent.class);
   }
 
   private AemAssetEvent getAemAssetSampleEvent(AemAssetEvent assetEvent) {

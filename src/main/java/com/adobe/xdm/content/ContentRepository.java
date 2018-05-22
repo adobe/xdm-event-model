@@ -14,31 +14,42 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm.content;
 
+import com.adobe.xdm.XdmObject;
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
+
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ImsUser extends ActivityStreamObject implements Serializable {
+public class ContentRepository extends XdmObject {
 
-  private String imsUserId;
+  protected String root;
 
-  public ImsUser() {
+  public ContentRepository() {
     super();
-    this.type = XdmContext.XDM_IMS_USER_TYPE;
+    this.type = XdmContext.XDM_CONTENT_REPOSITORY_TYPE;
   }
 
-  @JsonProperty(XdmContext.XDM_IMS_USER_PREFIX + ":id")
-  public String getImsUserId() {
-    return this.imsUserId;
+  @JsonProperty(XdmContext.XDM_CONTENT_REPOSITORY_PREFIX + ":root")
+  public String getRoot() {
+    return root;
   }
 
-  public void setImsUserId(String imsUserId) {
-    this.imsUserId = imsUserId;
+  public void setRoot(String root) {
+    this.root = root;
+  }
+
+  @Override
+  public String toString() {
+    return "ContentRepository{" +
+        "id='" + id + '\'' +
+        ", type='" + type + '\'' +
+        ", root='" + root + '\'' +
+        '}';
   }
 }

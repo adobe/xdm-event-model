@@ -14,44 +14,39 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  */
-package com.adobe.xdm.event;
+package com.adobe.xdm;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.io.Serializable;
-import java.util.Hashtable;
 
+/**
+ * ActivityStreams Object
+ */
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OsgiEvent extends ActivityStreamObject implements Serializable {
+public class XdmObject {
 
-  String topic;
-  Hashtable properties;
+  protected String id;
+  protected String type;
 
-  public OsgiEvent() {
-    super();
-    this.type = XdmContext.OSGI_EVENT_TYPE;
+  @JsonProperty("@id")
+  public String getId() {
+    return id;
   }
 
-  @JsonProperty(XdmContext.OSGI_EVENT_PREFIX + ":topic")
-  public String getTopic() {
-    return topic;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public void setTopic(String topic) {
-    this.topic = topic;
-    this.type =  XdmContext.OSGI_EVENT_TYPE +":"+topic;
+  @JsonProperty("@type")
+  public String getType() {
+    return type;
   }
 
-  @JsonProperty(XdmContext.OSGI_EVENT_PREFIX + ":properties")
-  public Hashtable getProperties() {
-    return properties;
-  }
-
-  public void setProperties(Hashtable properties) {
-    this.properties = properties;
+  public void setType(String type) {
+    this.type = type;
   }
 
   @Override
@@ -62,32 +57,26 @@ public class OsgiEvent extends ActivityStreamObject implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    if (!super.equals(o)) {
+
+    XdmObject that = (XdmObject) o;
+
+    if (id != null ? !id.equals(that.id) : that.id != null) {
       return false;
     }
-
-    OsgiEvent that = (OsgiEvent) o;
-
-    if (topic != null ? !topic.equals(that.topic) : that.topic != null) {
-      return false;
-    }
-    return properties != null ? properties.equals(that.properties) : that.properties == null;
+    return type != null ? type.equals(that.type) : that.type == null;
   }
 
   @Override
   public int hashCode() {
-    int result = super.hashCode();
-    result = 31 * result + (topic != null ? topic.hashCode() : 0);
-    result = 31 * result + (properties != null ? properties.hashCode() : 0);
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (type != null ? type.hashCode() : 0);
     return result;
   }
 
   @Override
   public String toString() {
-    return "AemOsgiEvent{" +
-        "topic='" + topic + '\'' +
-        ", properties=" + properties +
-        ", id='" + id + '\'' +
+    return "XdmObject{" +
+        "id='" + id + '\'' +
         ", type='" + type + '\'' +
         '}';
   }

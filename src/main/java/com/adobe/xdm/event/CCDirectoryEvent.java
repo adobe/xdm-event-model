@@ -16,18 +16,14 @@
  */
 package com.adobe.xdm.event;
 
-import com.adobe.xdm.common.XdmContext;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.adobe.xdm.common.XdmEvent;
+import com.adobe.xdm.content.ContentRepository;
+import com.adobe.xdm.extensions.ims.ImsUser;
+import com.adobe.xdm.external.repo.Directory;
 
-@JsonInclude(Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class AemPageUnpublishedEvent extends AemPageEvent {
+public class CCDirectoryEvent extends XdmEvent<Directory, ImsUser, ContentRepository, ImsUser> {
 
-  public AemPageUnpublishedEvent() {
-    super();
-    this.type = XdmContext.XDM_EVENT_UNPUBLISHED_TYPE;
+  public CCDirectoryEvent() {
+    this.object = new Directory();
   }
-
 }

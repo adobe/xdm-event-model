@@ -16,14 +16,14 @@
  */
 package com.adobe.xdm.event;
 
+import com.adobe.xdm.common.XdmContext;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AemPagePublishedEvent extends AemPageEvent implements Serializable {
+public class AemPagePublishedEvent extends AemPageEvent {
 
   public AemPagePublishedEvent() {
     super();
