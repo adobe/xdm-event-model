@@ -28,7 +28,6 @@ import com.adobe.xdm.extensions.ims.ImsOrg;
 import com.adobe.xdm.extensions.ims.ImsUser;
 import com.adobe.xdm.external.repo.Directory;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -249,8 +248,8 @@ public class SerializationTest {
     osgiEmittedEvent.setGenerator(aemInstance);
 
     Hashtable properties = new Hashtable();
-    properties.put("type","created");
-    properties.put("id","1234");
+    properties.put("type", "created");
+    properties.put("id", "1234");
     OsgiEvent osgiEvent = new OsgiEvent();
     osgiEvent.setTopic("io/adobe/event/sample/sku");
     osgiEvent.setProperties(properties);
@@ -274,10 +273,10 @@ public class SerializationTest {
     logger.info(prettyString);
   }
 
-  private String readFile(String relativePath)
-      throws IOException {
-    String absoluteFilePath = new File("src/test/resources").getAbsolutePath() + "/" + relativePath;
-    byte[] encoded = Files.readAllBytes(Paths.get(absoluteFilePath));
+  private static String readFile(String fileName) throws IOException {
+    byte[] encoded = Files.readAllBytes(Paths.get(
+        Thread.currentThread().getContextClassLoader()
+            .getResource(fileName).getPath()));
     return new String(encoded, StandardCharsets.UTF_8);
   }
 
