@@ -41,7 +41,8 @@ import org.slf4j.LoggerFactory;
 public class SerializationTest {
 
   Logger logger = LoggerFactory.getLogger(SerializationTest.class);
-
+  private static final String PUBLISHED_DATE = "1970-01-01T01:00:00:000+01";
+  //the above is new SimpleDateFormat(XdmContext.DATE_FORMAT,Locale.US).format(new Date(0));
   private ObjectMapper mapper;
 
   @Before
@@ -51,7 +52,7 @@ public class SerializationTest {
 
   private CCAssetEvent getCCAssetSampleEvent(CCAssetEvent assetEvent) {
     assetEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
-    assetEvent.setPublished("2016-07-16T19:20:30+01:00");
+    assetEvent.setPublished(PUBLISHED_DATE);
     ImsUser imsUser = new ImsUser();
     imsUser.setImsUserId("D13A1E7053E46A220A4C86E1@AdobeID");
     assetEvent.setTo(imsUser);
@@ -73,7 +74,7 @@ public class SerializationTest {
 
   private CCDirectoryEvent getCCDirectorySampleEvent(CCDirectoryEvent directoryEvent) {
     directoryEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
-    directoryEvent.setPublished("2016-07-16T19:20:30+01:00");
+    directoryEvent.setPublished(PUBLISHED_DATE);
     ImsUser imsUser = new ImsUser();
     imsUser.setImsUserId("D13A1E7053E46A220A4C86E1@AdobeID");
     directoryEvent.setTo(imsUser);
@@ -139,7 +140,7 @@ public class SerializationTest {
 
   private AemAssetEvent getAemAssetSampleEvent(AemAssetEvent assetEvent) {
     assetEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
-    assetEvent.setPublished("2016-07-16T19:20:30+01:00");
+    assetEvent.setPublished(PUBLISHED_DATE);
     ImsOrg imsOrg = new ImsOrg();
     imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
     assetEvent.setTo(imsOrg);
@@ -194,7 +195,7 @@ public class SerializationTest {
 
   private AemPageEvent getAemPageSampleEvent(AemPageEvent pageEvent) {
     pageEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
-    pageEvent.setPublished("2016-07-16T19:20:30+01:00");
+    pageEvent.setPublished(PUBLISHED_DATE);
 
     ImsOrg imsOrg = new ImsOrg();
     imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
@@ -238,7 +239,7 @@ public class SerializationTest {
     OsgiEmittedEvent osgiEmittedEvent = new OsgiEmittedEvent();
 
     osgiEmittedEvent.setId("82235bac-2b81-4e70-90b5-2bd1f04b5c7b");
-    osgiEmittedEvent.setPublished("2016-07-16T19:20:30+01:00");
+    osgiEmittedEvent.setPublished(PUBLISHED_DATE);
     ImsOrg imsOrg = new ImsOrg();
     imsOrg.setImsOrgId("08B3E5CE5822FC520A494229@AdobeOrg");
     osgiEmittedEvent.setTo(imsOrg);
