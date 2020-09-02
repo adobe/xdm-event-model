@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
 public class SerializationTest {
 
   Logger logger = LoggerFactory.getLogger(SerializationTest.class);
-  private static final String PUBLISHED_DATE = "1970-01-01T01:00:00:000+01";
+  private static final String PUBLISHED_DATE = "1970-01-01T01:00:00.000+01";
   //the above is new SimpleDateFormat(XdmContext.DATE_FORMAT,Locale.US).format(new Date(0));
   private ObjectMapper mapper;
 
