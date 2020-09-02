@@ -80,7 +80,7 @@ public class XdmContext {
   public static final String XDM_EVENT_ENVELOPE_PREFIX = "xdmEventEnvelope";
   public static final String XDM_EVENT_ENVELOPE_JSONLD_IRI = XDM_BASE_URL + "/event-envelope#";
 
-  public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssX";
+  public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
 
   @JsonProperty(W3C_ACTIVITYSTREAMS_PREFIX)
   public String getActivityStreamsIRI() {
