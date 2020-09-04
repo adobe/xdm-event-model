@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Objects;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -29,6 +30,7 @@ public class Page extends XdmObject {
 
   private String title;
   private String path;
+  private String version;
 
   public Page() {
     super();
@@ -53,6 +55,15 @@ public class Page extends XdmObject {
     this.path = pathname;
   }
 
+  @JsonProperty(XdmContext.XDM_COMPONENTIZED_PAGE_PREFIX + ":version")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -64,30 +75,27 @@ public class Page extends XdmObject {
     if (!super.equals(o)) {
       return false;
     }
-
     Page page = (Page) o;
-
-    if (title != null ? !title.equals(page.title) : page.title != null) {
-      return false;
-    }
-    return path != null ? path.equals(page.path) : page.path == null;
+    return Objects.equals(id, page.id) &&
+        Objects.equals(type, page.type) &&
+        Objects.equals(title, page.title) &&
+        Objects.equals(path, page.path) &&
+        Objects.equals(version, page.version);
   }
 
   @Override
   public int hashCode() {
-    int result = super.hashCode();
-    result = 31 * result + (title != null ? title.hashCode() : 0);
-    result = 31 * result + (path != null ? path.hashCode() : 0);
-    return result;
+    return Objects.hash(super.hashCode(), id, type, title, path, version);
   }
 
   @Override
   public String toString() {
     return "Page{" +
-        "id='" + id + '\'' +
-        ", type='" + type + '\'' +
-        ", title='" + title + '\'' +
+        "title='" + title + '\'' +
         ", path='" + path + '\'' +
+        ", version='" + version + '\'' +
+        ", id='" + id + '\'' +
+        ", type='" + type + '\'' +
         '}';
   }
 }
