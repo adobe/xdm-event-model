@@ -172,6 +172,7 @@
               <exclude>Dockerfile</exclude>
               <exclude>Dockerfile.build</exclude>
               <exclude>Makefile</exclude>
+              <exclude>.github/*</exclude>
             </excludes>
             <mapping>
               <!-- Add license headers to Play Framework routes files-->
