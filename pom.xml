@@ -80,33 +80,7 @@
       <version>${jackson.version}</version>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
-
-  <repositories>
-    <repository>
-      <id>maven-cloud-action</id>
-      <name>maven-cloud-action</name>
-      <url>https://artifactory.corp.adobe.com:443/artifactory/maven-cloud-action</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>asr-releases</id>
-      <name>ASR Releases</name>
-      <url>https://artifactory.corp.adobe.com/artifactory/maven-asr-release</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-  </repositories>
 
   <build>
     <plugins>
@@ -115,39 +89,6 @@
         <artifactId>license-maven-plugin</artifactId>
         <!-- Note: run "mvn license:format" to add headers automatically -->
       </plugin>
-
-      <!-- Add the tessa maven plugin: https://git.corp.adobe.com/SharedCloud/tessa-maven-plugin -->
-      <!-- This will upload all the service dependency info to the Tessa dependency DB at tessa.corp.adobe.com for your ASSET review -->
-      <!-- When creating a release build, set the TESSA_API_KEY env var and build 'mvn tessa:update -Dtessa.mode=LIVE' to trigger the plugin -->
-      <plugin>
-        <groupId>com.adobe.sharedcloud</groupId>
-        <artifactId>tessa-maven-plugin</artifactId>
-        <version>2.1.0</version>
-        <configuration>
-          <tessaHost>tessa.corp.adobe.com</tessaHost>
-          <excludeDependencyManagement>true</excludeDependencyManagement>
-          <internalGroupIds>
-            <!-- list your internal projects by groupId -->
-            <groupId>com.adobe.*</groupId>
-          </internalGroupIds>
-          <excludeArtifactIds>
-            <!-- project modules are excluded automatically -->
-            <!-- dependencies scoped with 'test' are automatically excluded -->
-            <!--
-                just in case nobody bothered to scope test dependencies
-                we don't want to add unnecessary cruft to tessa.
-                Add any other dependencies you want to exclude here.
-            -->
-            <artifactId>jmock</artifactId>
-            <artifactId>jmock-legacy</artifactId>
-            <artifactId>jmock-junit4</artifactId>
-            <artifactId>junit-addons</artifactId>
-            <artifactId>junit</artifactId>
-            <artifactId>mockito-all</artifactId>
-          </excludeArtifactIds>
-        </configuration>
-      </plugin>
-
     </plugins>
 
     <pluginManagement>
@@ -197,14 +138,6 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <!-- Repository for the Tessa plugin -->
-  <pluginRepositories>
-    <pluginRepository>
-      <id>tessa-artifactory</id>
-      <url>https://artifactory.corp.adobe.com/artifactory/maven-sc-dev</url>
-    </pluginRepository>
-  </pluginRepositories> 
 
 </project>
 

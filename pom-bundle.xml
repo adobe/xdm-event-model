@@ -90,32 +90,6 @@
 
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>maven-cloud-action</id>
-      <name>maven-cloud-action</name>
-      <url>https://artifactory.corp.adobe.com/artifactory/maven-cloud-action</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>artifactory-releases</id>
-      <name>Adobe Artifactory Repository</name>
-      <url>https://artifactory.corp.adobe.com/artifactory/maven-aem-dev</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
   <build>
     <plugins>
       <plugin>
@@ -163,6 +137,7 @@
               <exclude>Dockerfile</exclude>
               <exclude>Dockerfile.build</exclude>
               <exclude>Makefile</exclude>
+              <exclude>.github/*</exclude>
             </excludes>
             <mapping>
               <!-- Add license headers to Play Framework routes files-->
