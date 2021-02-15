@@ -23,12 +23,31 @@
   <packaging>bundle</packaging>
   <version>0.92.0</version>
 
+  <name>Adobe XDM Event Model (OSGI)</name>
+  <description>Adobe I/O Event Java (Jackson based) OSGI Implementation of the Adobe XDM Event Model</description>
+  <url>https://www.github.com/adobe/TODO</url>
+
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+
+  <!-- required metadata for publishing the Maven artifacts -->
+  <organization>
+    <name>Adobe</name>
+    <url>https://www.adobe.com</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <name>Francois Le Droff</name>
+      <email>ledroff@adobe.com</email>
+      <organization>Adobe</organization>
+      <organizationUrl>https://www.adobe.com</organizationUrl>
+    </developer>
+  </developers>
 
   <properties>
     <sling.java.version>8</sling.java.version>
