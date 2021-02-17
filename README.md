@@ -1,41 +1,38 @@
 # xdm-event-model
 
-[![jenkins_jar](https://img.shields.io/badge/jenkins-jar-green.svg?style=flat)](https://cloudaction.ci.corp.adobe.com:12001/job/xdm-event-model/)
-[![artifactory_jar](https://img.shields.io/badge/artifactory-jar-green.svg?style=flat)](https://artifactory.corp.adobe.com/artifactory/maven-cloud-action-local/com/adobe/xdm/event/xdm-event-model/)
-
-[![jenkins_osgi](https://img.shields.io/badge/jenkins-osgi-blue.svg?style=flat)](https://cloudaction.ci.corp.adobe.com:12001/job/xdm-event-model-osgi/)
-[![artifactory_osgi](https://img.shields.io/badge/artifactory-osgi-blue.svg?style=flat)](https://artifactory.corp.adobe.com/artifactory/maven-cloud-action-local/com/adobe/xdm/event/com.adobe.xdm.event.xdm-event-model/)
-
-
-`Adobe I/O` Java (Jackson based) Implementation of the XDM event model
+`Adobe I/O Event` Java (Jackson based) Implementation of the `Adobe XDM Event Model`
 
 ## Specification
 
-
-The XDM event-model is based on [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld) based
+The `Adobe XDM Event Model` is based on [json-ld w3c activity streams spec](https://github.com/w3c/activitystreams/blob/master/ns/activitystreams.jsonld) based
 
 for more detailed specifications, visit
-* https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=AdobeCloudPlatform&title=XDM+Event+Envelope
 * https://github.com/adobe/xdm/tree/master/schemas/common
 
+## Unit tests
 
-Have a look at the unit tests and you'll have a good understanding of the expected json serialization.
+Have a look at our [JUnit](https://junit.org/) [tests](./src/test) 
+and you'll have a good understanding of the expected json serialization.
 
 ## Builds
 
-This Library is associated with 2 builds:
+This Library is associated with 2 [maven](https://maven.apache.org/) builds (they also run the unit tests):
 
-* one for the standard Java library, with a classic `pom.xml`
-* another to build it as an OSGI library ready for use in AEM, with a `pom-bundle.xml` 
-  * to trigger this build use the following command line: `mvn -f pom-bundle.xml -s settings.xml clean install`
-  
-## Contribute
- 
-* propose update through our spec wiki
-* and/or git pull request 
-  * Please follow our [coding style guide](https://git.corp.adobe.com/adobeio/ca-common/tree/master/src/main/resources/styleguide/README.md)
- 
-## Notes, docs and pointers
+* one to build a standard Java library, using a standard `pom.xml`
+  * to trigger this build locally, use the following command line: `mvn clean install`
+* another to build a Java OSGI library (ready for use in [AEM](https://www.adobe.com/marketing/experience-manager.html)), with a `pom-bundle.xml` 
+  * to trigger this build locally, use the following command line: `mvn -f pom-bundle.xml clean install`
+
+
+### Contributing
+
+Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
+
+### Licensing
+
+This project is licensed under the Apache V2 License. See [LICENSE](LICENSE.md) for more information.
+
+## Other Misc Notes, docs and pointers
 
 Note that as we chose to serve the json-ld `@context` through link header [9] and keep fixed json-ld prefixes,
 we based this implementation of plain and simple jackson [10] serialization,

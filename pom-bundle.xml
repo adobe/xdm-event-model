@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    ADOBE CONFIDENTIAL
-    ___________________
+    Copyright 2017 Adobe. All rights reserved.
+    This file is licensed to you under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License. You may obtain a copy
+    of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-    Copyright 2017 Adobe Systems Incorporated
-    All Rights Reserved.
-
-    NOTICE:  All information contained herein is, and remains
-    the property of Adobe Systems Incorporated and its suppliers,
-    if any.  The intellectual and technical concepts contained
-    herein are proprietary to Adobe Systems Incorporated and its
-    suppliers and are protected by trade secret or copyright law.
-    Dissemination of this information or reproduction of this material
-    is strictly forbidden unless prior written permission is obtained
-    from Adobe Systems Incorporated.
+    Unless required by applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+    OF ANY KIND, either express or implied. See the License for the specific language
+    governing permissions and limitations under the License.
 
 -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,16 +23,60 @@
   <packaging>bundle</packaging>
   <version>0.92.0</version>
 
+  <name>Adobe XDM Event Model (OSGI)</name>
+  <description>Adobe I/O Event Java (Jackson based) OSGI Implementation of the Adobe XDM Event Model</description>
+  <url>https://github.com/adobe/xdm-event-model</url>
+  
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <!-- required metadata for publishing the Maven artifacts -->
+  <organization>
+    <name>Adobe</name>
+    <url>https://www.adobe.com</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <name>Francois Le Droff</name>
+      <email>ledroff@adobe.com</email>
+      <organization>Adobe</organization>
+      <organizationUrl>https://www.adobe.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/adobe/xdm-event-model.git</connection>
+    <developerConnection>scm:git:ssh://github.com/adobe/xdm-event-model.git</developerConnection>
+    <url>https://github.com/adobe/xdm-event-model/tree/master</url>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+
   <properties>
-    <sling.java.version>8</sling.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sling.java.version>8</sling.java.version>
     <jacoco-maven-plugin.version>0.7.7.201606060606</jacoco-maven-plugin.version>
 
     <crx.host>localhost</crx.host>
     <crx.port>4502</crx.port>
     <crx.username>admin</crx.username>
     <crx.password>admin</crx.password>
-    <crx.path>/apps/eventproxy/install</crx.path>
+    <crx.path>/apps/eventproxy/install.author</crx.path>
     <jackson.version>2.10.0</jackson.version>
     <javax-validation.version>1.1.0.Final</javax-validation.version>
   </properties>
@@ -95,32 +134,6 @@
 
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>maven-cloud-action</id>
-      <name>maven-cloud-action</name>
-      <url>https://artifactory.corp.adobe.com/artifactory/maven-cloud-action</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>artifactory-releases</id>
-      <name>Adobe Artifactory Repository</name>
-      <url>https://artifactory.corp.adobe.com/artifactory/maven-aem-dev</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
   <build>
     <plugins>
       <plugin>
@@ -136,6 +149,17 @@
         <artifactId>license-maven-plugin</artifactId>
         <!-- Note: run "mvn license:format" to add headers automatically -->
       </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+
     </plugins>
 
     <pluginManagement>
@@ -168,6 +192,7 @@
               <exclude>Dockerfile</exclude>
               <exclude>Dockerfile.build</exclude>
               <exclude>Makefile</exclude>
+              <exclude>.github/*</exclude>
             </excludes>
             <mapping>
               <!-- Add license headers to Play Framework routes files-->
@@ -222,6 +247,64 @@
           </configuration>
         </plugin>
 
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.2.1</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.9.1</version>
+          <configuration>
+            <source>8</source>
+          </configuration>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.5</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.8</version>
+          <extensions>true</extensions>
+          <configuration>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            <nexusUrl>
+              https://oss.sonatype.org/
+            </nexusUrl>
+            <serverId>ossrh</serverId>
+          </configuration>
+        </plugin>
+
+
       </plugins>
     </pluginManagement>
 
@@ -251,6 +334,21 @@
         </plugins>
       </build>
     </profile>
+
+    <profile>
+      <id>release</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-gpg-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
   </profiles>
 
 
