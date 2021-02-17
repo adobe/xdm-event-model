@@ -45,7 +45,7 @@
 - [ ] I have added tests to cover my changes.
 - [ ] All new and existing tests passed.
 - [ ] the Maven local build completes: `mvn install` completes i.e. the build is successful 
-- [ ] the OSGI Maven local build completes: `mvn -f pom-bundle.xml -P localInstall clean install` completes i.e. the OSGI build is successful 
+- [ ] the OSGI Maven local build completes: `mvn -f pom-bundle.xml clean install` completes i.e. the OSGI build is successful 
 
 
 
