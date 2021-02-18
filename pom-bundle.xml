@@ -18,8 +18,8 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.adobe.xdm.event</groupId>
-  <artifactId>com.adobe.xdm.event.xdm-event-model</artifactId>
+  <groupId>com.adobe.event</groupId>
+  <artifactId>com.adobe.event.xdm-event-model</artifactId>
   <packaging>bundle</packaging>
   <version>0.92.0</version>
 
