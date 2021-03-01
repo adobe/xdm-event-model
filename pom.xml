@@ -18,7 +18,7 @@
 
   <groupId>com.adobe.event</groupId>
   <artifactId>xdm-event-model</artifactId>
-  <version>0.92.2-SNAPSHOT</version>
+  <version>0.92.2</version>
 
   <name>Adobe XDM Event Model</name>
   <description>Adobe I/O Event Java (Jackson based) Implementation of the Adobe XDM Event Model</description>
@@ -50,7 +50,7 @@
     <connection>scm:git:https://github.com/adobe/xdm-event-model.git</connection>
     <developerConnection>scm:git:https://github.com/adobe/xdm-event-model.git</developerConnection>
     <url>https://github.com/adobe/xdm-event-model/tree/master</url>
-    <tag>HEAD</tag>
+    <tag>xdm-event-model-0.92.2</tag>
   </scm>
 
   <distributionManagement>
