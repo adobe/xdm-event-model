@@ -49,9 +49,10 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/adobe/xdm-event-model.git</connection>
-    <developerConnection>scm:git:ssh://github.com/adobe/xdm-event-model.git</developerConnection>
+    <connection>scm:git:https://github.com/adobe/xdm-event-model.git</connection>
+    <developerConnection>scm:git:https://github.com/adobe/xdm-event-model.git</developerConnection>
     <url>https://github.com/adobe/xdm-event-model/tree/master</url>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
