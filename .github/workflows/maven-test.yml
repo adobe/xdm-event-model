@@ -23,7 +23,6 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
-        java: [8, 11]
 
     steps:
       # Check out Git repository
