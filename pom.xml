@@ -20,7 +20,7 @@
 
   <groupId>com.adobe.event</groupId>
   <artifactId>xdm-event-model</artifactId>
-  <version>0.92.0</version>
+  <version>0.92.1-SNAPSHOT</version>
 
   <name>Adobe XDM Event Model</name>
   <description>Adobe I/O Event Java (Jackson based) Implementation of the Adobe XDM Event Model</description>

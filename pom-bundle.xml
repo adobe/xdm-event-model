@@ -21,7 +21,7 @@
   <groupId>com.adobe.event</groupId>
   <artifactId>com.adobe.event.xdm-event-model</artifactId>
   <packaging>bundle</packaging>
-  <version>0.92.0</version>
+  <version>0.92.1-SNAPSHOT</version>
 
   <name>Adobe XDM Event Model (OSGI)</name>
   <description>Adobe I/O Event Java (Jackson based) OSGI Implementation of the Adobe XDM Event Model</description>
