@@ -24,7 +24,6 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         java: [8, 11]
-        profile: [ '', '-Pcloud,adobe-public']
 
     steps:
       # Check out Git repository
