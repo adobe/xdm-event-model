@@ -23,8 +23,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
-        java: [8, 11]
-        profile: [ '', '-Pcloud,adobe-public']
+        java: [11]
 
     steps:
       # Check out Git repository
