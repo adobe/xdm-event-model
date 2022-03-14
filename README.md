@@ -44,7 +44,6 @@ otherwise for full-fledged json-ld implementation hydra [0] and jsonld-java [8] 
 * [3] https://json-ld.org/playground/
 * [4] https://github.com/w3c/activitystreams/issues/134#issuecomment-108122077
 * [5] https://github.com/w3c/activitystreams/issues/136
-* [6] http://livefyre-cdn.s3.amazonaws.com/libs/livefyre-activity-vocabulary/v0.0.0/context.json
 * [8] https://github.com/jsonld-java/jsonld-java
 * [9] https://www.w3.org/TR/json-ld/#interpreting-json-as-json-ld
 * [10] https://github.com/FasterXML/jackson-core
